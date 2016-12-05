@@ -1,0 +1,105 @@
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:400,300,600);
+
+html,body{
+  margin:0;
+  text-align: center;
+  font-family: 'Open Sans';
+}
+/* Remove margins and padding from the list, and add a black background color */
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #DCC7AA;
+    border-bottom: 3px solid #fff;
+}
+
+li {
+    float: left;
+}
+
+li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+/* Change the link color to #111 (black) on hover */
+li a:hover {
+    background-color: #111;
+}
+
+/* Float the list items side by side */
+ul.topnav li {float: left;}
+
+/* Style the links inside the list items */
+ul.topnav li a {
+    display: inline-block;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    transition: 0.3s;
+    font-size: 17px;
+}
+h1 {
+  color: #fff;
+  text-align: center;
+  font-weight: 300;
+}
+
+body{
+  background-color:#6B7A8F;
+}
+.images
+{
+display: inline;
+margin: 0px;
+padding: 0px;
+}
+
+#content
+{
+  display: inline-block;
+}
+.wrapper{
+  height:100vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background-repeat:no-repeat;
+  background-size:cover;
+}
+input{
+  color:#333;
+  box-sizing:border-box;
+  width: 400px;
+  border:none;
+  padding:15px;
+  font-size:18px;
+  margin-right:20px;
+}
+button{
+  background-color:#F7882F;
+  border:2px solid white;
+  color:white;
+  padding:15px;
+  font-size:18px;
+  width:200px;
+  transition:all 150ms ease-in-out;
+}
+button:hover{
+  cursor:pointer;
+  transform:scale(1.1);
+}
+button:focus,input {
+  outline:0;
+}
+
+input,button{
+  border-radius:3px;
+  letter-spacing:1.2pt;
+}
