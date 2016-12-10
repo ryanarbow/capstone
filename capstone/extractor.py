@@ -7,24 +7,8 @@ import pandas as pd
 
 headers = {'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.124 Safari/537.36'}
 
-cities = [['tx', "austin"] ,
-          [ 'ca' , 'los-angeles'] ,
-          [ 'ga' , 'atlanta'] ,
-          [ 'ma' , 'boston'] ,
-          [ 'nc' , 'charlotte'] ,
-          [ 'tx' , 'dallas'] ,
-          [ 'co' , 'denver'] ,
-          [ 'tx' , 'houston'] ,
-          [ 'fl' , 'miami'] ,
-          [ 'mn' , 'minneapolis'] ,
-          [ 'ny' , 'new-york'] ,
-          [ 'pa' , 'philadelphia'] ,
-          [ 'az' , 'phoenix'] ,
-          [ 'or' , 'portland'] ,
-          [ 'ca' , 'san-francisco'] ,
-          [ 'ca' , 'san-diego'] ,
-          [ 'wa' , 'seattle'] ,
-          [ 'dc' , 'washington']]
+cities = [['tx', "austin"],
+         [ 'ca' , 'los-angeles']]
 
 
 class DVExtractor:
@@ -73,7 +57,7 @@ class DVExtractor:
                 page+=1
 
 
-    def data_for_profile(self, user_profile_url):
+    def data_for_profile(self): #, user_profile_url
         #Create empty lists
         times = []
         fees = []
@@ -142,9 +126,11 @@ class DVExtractor:
                            'response_time': times,
                            'url':urls,
                            'hostid':hostids})
+                           
+        print(df.head())
 def test():
     test1 = DVExtractor()
-    test1.data_for_profile(nothingyet)
+    test1.data_for_profile()
 
 if __name__ == "__main__":
     test()
