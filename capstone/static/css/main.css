@@ -1,6 +1,6 @@
-@import url(http://fonts.googleapis.com/css?family=Open+Sans:400,300,600);
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:400);
 
-html,body{
+body{
   margin:0;
   text-align: center;
   font-family: 'Open Sans';
@@ -29,7 +29,7 @@ li a {
 
 /* Change the link color to #111 (black) on hover */
 li a:hover {
-    background-color: #111;
+    background-color: #F9CF00;
 }
 
 /* Float the list items side by side */
@@ -45,10 +45,11 @@ ul.topnav li a {
     transition: 0.3s;
     font-size: 17px;
 }
-h1 {
+.masthead {
   color: #fff;
   text-align: center;
-  font-weight: 300;
+  margin-top: 2em;
+  margin-bottom: 5em;
 }
 
 body{
@@ -57,28 +58,25 @@ body{
 .images
 {
 display: inline;
-margin: 0px;
-padding: 0px;
+margin: 0em;
+padding: 0em;
 }
 
 .content {   
-    width: 740px;
-    margin-top:90px;
+    width: 740em;
+    margin-top:90em;
     margin-left: auto; 
     margin-right: auto;
     text-align: justify;
-    -ms-text-justify: distribute-all-lines;
     text-justify: distribute-all-lines;
 }
 .stretch {
     width: 100%;
     display: inline-block;
-    font-size: 0;
-    line-height: 0
 }
 
 .wrapper{
-  height:100vh;
+  margin-top: 5em;
   display:flex;
   align-items:center;
   justify-content:center;
