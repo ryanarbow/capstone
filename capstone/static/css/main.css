@@ -6,46 +6,29 @@ body{
   font-family: 'Open Sans';
   background-color:#6B7A8F;
 }
-/* Remove margins and padding from the list, and add a black background color */
-ul {
+.navbar {
     list-style-type: none;
     margin: 0;
     padding: 0;
-    overflow: hidden;
     background-color: #DCC7AA;
     border-bottom: 3px solid #fff;
 }
 
-li {
-    float: left;
-}
+.navbar > li {float: left;}
 
-li a {
-    display: block;
-    color: white;
-    text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
-}
-
-/* Change the link color to #111 (black) on hover */
-li a:hover {
-    background-color: #F9CF00;
-}
-
-/* Float the list items side by side */
-ul.topnav li {float: left;}
-
-/* Style the links inside the list items */
-ul.topnav li a {
+.navbar > li a {
     display: inline-block;
     color: #f2f2f2;
     text-align: center;
-    padding: 14px 16px;
+    padding: 12px 16px;
     text-decoration: none;
     transition: 0.3s;
-    font-size: 17px;
+    font-size: 14px;
 }
+
+/* Change the link color on hover */
+.navbar > li a:hover {background-color: #F9CF00;}
+
 .introduction {
   color: #fff;
   text-align: center;
@@ -54,31 +37,25 @@ ul.topnav li a {
   font-weight: 200;
 }
 
-
 h1{
   font-weight: 300;
 }
 
-
-
-.images
-{
-display: inline;
-margin: 0em;
-padding: 0em;
+.images {
+  display: inline;
+  padding: 0em;
 }
 
-.content {   
-    width: 740em;
-    margin-top:90em;
-    margin-left: auto; 
-    margin-right: auto;
-    text-align: justify;
-    text-justify: distribute-all-lines;
+span{
+  font-size: 10;
+  color:#F9CF00;
+  padding:.5em;
 }
+
 .stretch {
-    width: 100%;
-    display: inline-block;
+  width: 100%;
+  display: inline-block;
+  text-align: center;
 }
 
 .wrapper{
@@ -115,7 +92,5 @@ button:focus,input {
   outline:0;
 }
 
-input,button{
-  border-radius:3px;
-  letter-spacing:1.2pt;
-}
+
+
