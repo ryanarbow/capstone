@@ -1,9 +1,10 @@
-@import url(http://fonts.googleapis.com/css?family=Open+Sans:400);
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:400,300,600);
 
 body{
   margin:0;
   text-align: center;
   font-family: 'Open Sans';
+  background-color:#6B7A8F;
 }
 /* Remove margins and padding from the list, and add a black background color */
 ul {
@@ -45,16 +46,21 @@ ul.topnav li a {
     transition: 0.3s;
     font-size: 17px;
 }
-.masthead {
+.introduction {
   color: #fff;
   text-align: center;
-  margin-top: 2em;
+  margin-top: 5em;
   margin-bottom: 5em;
+  font-weight: 200;
 }
 
-body{
-  background-color:#6B7A8F;
+
+h1{
+  font-weight: 300;
 }
+
+
+
 .images
 {
 display: inline;
