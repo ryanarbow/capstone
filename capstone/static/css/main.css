@@ -42,21 +42,26 @@ h1{
   font-weight: 300;
 }
 
-.images {
-  display: inline;
-  padding: 0em;
+h2{
+  font-weight: 300;
+  font-size: 1.5em;
+}
+
+.imgcontainer {
+  display: inline-block;
+  text-align: center;
+  vertical-align: middle;
+}
+
+.imgcontainer > img {
+  border:2px solid white;
+  border-radius: 20px
 }
 
 span{
   font-size: 3em;
   color:#F9CF00;
-  padding:.5em;
-}
-
-.stretch {
-  width: 100%;
-  display: inline-block;
-  text-align: center;
+  padding: .5em;
 }
 
 .wrapper{
