@@ -98,5 +98,43 @@ button:focus,input {
   outline:0;
 }
 
+.divSquare{
+  width:48%; 
+  height:200px; 
+  margin:6px; 
+  border:1px solid black; 
+  float: left
+}
 
+p {
+  margin: 1px;
+  padding: .5em;
+}
 
+.swatchblock {
+  width: 460px;
+  margin: 0 20px;
+  height: 250px;
+  display: inline-block;
+}
+
+.swatch1,
+.swatch2 {
+  width: 475px;
+  float: left;
+  margin: 1em;
+  background: white;
+  border-radius: .5em;
+  text-align: left;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  border-bottom-left-radius: .5em;
+  border-bottom-right-radius:.5em;
+}
+
+.swatch {
+  height: 200px;
+  background: #f0dac5;
+  color: #002744;
+  border-bottom-left-radius: .5em;
+  border-bottom-right-radius: .5em;
+}
