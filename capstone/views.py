@@ -6,6 +6,6 @@ from . import app
 def landing_page():
     return render_template("landing_page.html")
 
-@app.route("/user/")
+@app.route("/user/", methods=["GET"])
 def analysis_page():
     return render_template("analysis_page.html")
