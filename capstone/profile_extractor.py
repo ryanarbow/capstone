@@ -1,5 +1,5 @@
 import requests
-from bs4 import BeautifulSoup
+import BeautifulSoup
 import pandas as pd
 import sqlite3 as lite
 import os
@@ -7,7 +7,7 @@ import sys
 
 class DVExtractor:
     def __init__(self):
-        self.data_for_profile(url)
+        self.data_for_profile()
 
     def data_for_profile(self, url):
         r = requests.get(url)
@@ -55,7 +55,7 @@ class DVExtractor:
         
 def test():
     test1 = DVExtractor()
-    test1.data_for_profile(url)
+    test1.data_for_profile("https://dogvacay.com/major-poochy-dog-services-dog-boarding-484614?default_service=boarding")
 
 if __name__ == "__main__":
     test()
