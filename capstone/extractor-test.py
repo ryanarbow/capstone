@@ -1,64 +1,58 @@
 import requests
 from bs4 import BeautifulSoup
-import time
 import os
 import sys
+import time
+import pandas as pd
 
-headers = {'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.124 Safari/537.36'}
-
-cities = [['tx', "austin"] ,
-          [ 'ca' , 'los-angeles'] ,
-          [ 'ga' , 'atlanta'] ,
-          [ 'ma' , 'boston'] ,
-          [ 'nc' , 'charlotte'] ,
-          [ 'tx' , 'dallas'] ,
-          [ 'co' , 'denver'] ,
-          [ 'tx' , 'houston'] ,
-          [ 'fl' , 'miami'] ,
-          [ 'mn' , 'minneapolis'] ,
-          [ 'ny' , 'new-york'] ,
-          [ 'pa' , 'philadelphia'] ,
-          [ 'az' , 'phoenix'] ,
-          [ 'or' , 'portland'] ,
-          [ 'ca' , 'san-francisco'] ,
-          [ 'ca' , 'san-diego'] ,
-          [ 'wa' , 'seattle'] ,
-          [ 'dc' , 'washington']]
-          
-datadir = 'crawl/'
-if not(os.path.isdir(datadir)):
-    os.makedirs(datadir)
-
-for city in cities:
-    k = city[0]
-    v = city[1]
-    running = True
-    page = 1
-    print('')
-    print(k,v)
-    time.sleep(1)
-    while running:
-        url = "https://dogvacay.com/dog-boarding--" + k + "--" + v + "?p="+str(page)
-        filename = datadir + k + '-' + v + '-' + str(page) + '.htm'
-        if not(os.path.isfile(filename)):
-            sys.stdout.write('-')
-            r = requests.get(url, headers=headers)
-            time.sleep(1)
-            f = open(filename, 'wb')
-            f.write(r.text.encode('ascii', 'replace'))
-            f.close()
-            data = r.text
-        else:
-            sys.stdout.write('.')
-            f = open(filename, 'r')
-            data = f.read()
-            f.close()
+class ProfileExtractor:
+    def data_for_profile(self, user_profile_url):
+        r = requests.get(user_profile_url)
+        data = r.text
         soup = BeautifulSoup(data, "lxml")
-        pagination_links = soup.findAll('a', {'class': 'pagination-link'})
-        running = False
-        for pl in pagination_links:
-            if pl.text.find('Next') == 0:
-                running = True
-                #print(url)
-                #print(pl)
-        page+=1
+        times = []
+        fees = []
+        reviews = []
+        ratings = []
+        #Extract fee
+        fee = soup.findAll('span', {'class': 'dv-selected-service-rate__price'})[0].text.strip()
+        #Extract total number of reviews
+        profile = soup.findAll('span', {'data-scroll-link': 'profile-reviews'})
+        if profile is not None and len(profile) > 0:
+            review = soup.findAll('span', {'data-scroll-link': 'profile-reviews'})[0].text.strip()
+        else:
+            review = 0
+        #Extract response time
+        response = soup.findAll('li', {'class': 'dv-profile-list__item'})
+        if response is not None and len(response) > 0:
+            response_time = soup.findAll('li', {'class': 'dv-profile-list__item'})[1].text.strip()
+        else:
+            response_time = 0
+        #Extract star rating
+        stars = review_stars = soup.findAll('ul', {'class': 'rating dv-review-stars'})
+        if stars is not None and len(stars) > 0:
+            review_stars = soup.findAll('ul', {'class': 'rating dv-review-stars'})[0]
+            full_star = review_stars.findAll('i', {'class': ' dv-icon dv-icon__star '})
+            rating = len(full_star)
+            half_star = soup.findAll('i', {'class': ' dv-icon dv-icon__star-half '})
+            if len(half_star) > 0:
+                rating += .5
+        else:
+            rating = 0
+        fees.append(fee)
+        reviews.append(review)
+        ratings.append(rating)
+        times.append(response_time)
+    
+        df = pd.DataFrame({'fee':fees,
+                           'review':reviews,
+                           'rating':ratings,
+                           'response_time': times})
+        print(df)
+        
+def test():
+    test1 = ProfileExtractor()
+    test1.data_for_profile("https://dogvacay.com/best-care-in-the-west-end-dog-boarding-242304?default_service=boarding")
+
+if __name__ == "__main__":
+    test()
