@@ -1,16 +1,13 @@
 import requests
-import BeautifulSoup
-import pandas as pd
-import sqlite3 as lite
+from bs4 import BeautifulSoup
 import os
 import sys
+import time
+import pandas as pd
 
-class DVExtractor:
-    def __init__(self):
-        self.data_for_profile()
-
-    def data_for_profile(self, url):
-        r = requests.get(url)
+class ProfileExtractor:
+    def data_for_profile(self, user_profile_url):
+        r = requests.get(user_profile_url)
         data = r.text
         soup = BeautifulSoup(data, "lxml")
         times = []
@@ -54,8 +51,8 @@ class DVExtractor:
         print(df)
         
 def test():
-    test1 = DVExtractor()
-    test1.data_for_profile("https://dogvacay.com/major-poochy-dog-services-dog-boarding-484614?default_service=boarding")
+    test1 = ProfileExtractor()
+    test1.data_for_profile("https://dogvacay.com/best-care-in-the-west-end-dog-boarding-242304?default_service=boarding")
 
 if __name__ == "__main__":
     test()
