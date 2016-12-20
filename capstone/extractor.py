@@ -14,9 +14,9 @@ cities = [['tx', "austin"],
 class DVExtractor:
     def __init__(self):
         self.data_dir = 'crawl/' 
-        self.data_for_cities()
+        self.cities_crawl()
 
-    def data_for_cities(self):
+    def cities_crawl(self):
         # this builds the crawled data for cities 
         datadir = 'crawl/'
         if not(os.path.isdir(datadir)):
@@ -57,7 +57,7 @@ class DVExtractor:
                 page+=1
 
 
-    def data_for_profile(self): #, user_profile_url
+    def data_for_cities(self):
         #Create empty lists
         times = []
         fees = []
@@ -130,7 +130,7 @@ class DVExtractor:
         print(df.head())
 def test():
     test1 = DVExtractor()
-    test1.data_for_profile()
+    test1.data_for_cities()
 
 if __name__ == "__main__":
     test()
