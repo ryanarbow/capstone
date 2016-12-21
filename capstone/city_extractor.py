@@ -7,8 +7,24 @@ import pandas as pd
 
 headers = {'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.124 Safari/537.36'}
 
-cities = [['tx', "austin"],
-         [ 'ca' , 'los-angeles']]
+cities = [['tx', "austin"] ,
+          [ 'ca' , 'los-angeles'] ,
+          [ 'ga' , 'atlanta'] ,
+          [ 'ma' , 'boston'] ,
+          [ 'nc' , 'charlotte'] ,
+          [ 'tx' , 'dallas'] ,
+          [ 'co' , 'denver'] ,
+          [ 'tx' , 'houston'] ,
+          [ 'fl' , 'miami'] ,
+          [ 'mn' , 'minneapolis'] ,
+          [ 'ny' , 'new-york'] ,
+          [ 'pa' , 'philadelphia'] ,
+          [ 'az' , 'phoenix'] ,
+          [ 'or' , 'portland'] ,
+          [ 'ca' , 'san-francisco'] ,
+          [ 'ca' , 'san-diego'] ,
+          [ 'wa' , 'seattle'] ,
+          [ 'dc' , 'washington']]
 
 
 class DVExtractor:
@@ -62,12 +78,8 @@ class DVExtractor:
         times = []
         fees = []
         reviews = []
-        repeats = []
         city = []
         ratings = []
-        name = []
-        urls = []
-        hostids = []
         for src in os.listdir(self.data_dir):
         # all the code in pynb in #Data extraction phase
             # returns the pandas data frame
@@ -97,37 +109,35 @@ class DVExtractor:
                 half_star = sitter.findAll('i', {'class': 'dv-icon__star-half'})
                 if len(half_star) > 0:
                     rating += .5
-                repeat = sitter.find('span', {'class': 'dv-host-repeat'})
-                if repeat is not None and len(repeat) > 0:
-                    repeat = repeat.text.strip().replace('Repeat Guests', '').replace('Repeat Guest', '')
-                else:
-                    repeat = 0
                 town = soup.findAll('span', {'class': 'dv-hero__title__location'})[0].text.strip().split(',')[0]
-                endpoint = (sitter.get('data-href'))
-                if endpoint is not None:
-                    url = endpoint
-                host = (sitter.get('data-host-id'))
-                if host is not None:
-                    hostid = host
                 fees.append(fee)
                 reviews.append(review)
                 ratings.append(rating)
-                repeats.append(repeat)
                 city.append(town)
                 times.append(response_time)
-                urls.append(url)
-                hostids.append(hostid)
         #Dataframe from dict of objects 
         df = pd.DataFrame({'fee':fees,
                            'review':reviews,
                            'rating':ratings,
-                           'repeat':repeats,
                            'town':city, 
-                           'response_time': times,
-                           'url':urls,
-                           'hostid':hostids})
-                           
-        print(df.head())
+                           'response_time': times})
+        
+        df['response_time'] = df['response_time'].astype(str)
+        df['review'] = df['review'].astype(str)
+        df['response_time'] = df['response_time'].map(lambda x: 1 if 'minutes' in x else 2 if 'hour' in x else 3)
+        df['review'] = df['review'].map(lambda x: 0 if 'Testimonial' in x else x)                   
+        df['response_time'] = df['response_time'].astype(int)
+        df['rating'] = df['rating'].astype(int)
+        df['fee'] = df['fee'].astype(int)
+        df['review'] = df['review'].astype(float)
+        df1 = df.groupby('town').mean()
+        df2 = df.groupby('town').max()
+        df3 = df.groupby('town').min()
+        df1.rename(columns={'fee': 'fee_mean', 'rating': 'rating_mean', 'response_time': 'response_time_mean', 'review': 'review_mean'}, inplace=True)
+        df2.rename(columns={'fee': 'fee_max', 'rating': 'rating_max', 'response_time': 'response_time_max', 'review': 'review_max'}, inplace=True)
+        df3.rename(columns={'fee': 'fee_min', 'rating': 'rating_min', 'response_time': 'response_time_min', 'review': 'review_min'}, inplace=True)
+        result = pd.concat([df1, df2, df3], axis=1)
+        print(result)
 def test():
     test1 = DVExtractor()
     test1.data_for_cities()
