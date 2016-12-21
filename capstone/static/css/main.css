@@ -125,8 +125,8 @@ p {
 }
 
 .swatchblock {
-  width: 460px;
-  margin: 0 20px;
+  max-width: 500px;
+  margin: 1em;
   height: 250px;
   display: inline-block;
 }
@@ -134,9 +134,9 @@ p {
 .swatch1,
 .swatch2 {
   width: 475px;
-  float: left;
-  margin: 1em;
-  background: white;
+  margin: 2em;
+  background: #F7882F;
+  color: white;
   border-radius: .5em;
   text-align: left;
   box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
@@ -146,7 +146,7 @@ p {
 
 .swatch {
   height: 200px;
-  background: #f0dac5;
+  background: #6B7A8F;
   color: #002744;
   border-bottom-left-radius: .5em;
   border-bottom-right-radius: .5em;
