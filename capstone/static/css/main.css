@@ -1,25 +1,30 @@
 @import url(http://fonts.googleapis.com/css?family=Open+Sans:400,300,600);
+
 * { margin: 0; padding: 0; }
-body{
-  margin:0;
+
+.introduction,
+.images,
+.wrapper{
   text-align: center;
   font-family: 'Open Sans';
-  background-color:#6B7A8F;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 3em;
 }
 
 .navbar {
     list-style-type: none;
-    margin: 0;
-    padding: 0;
     background-color: #DCC7AA;
-    border-bottom: 3px solid #fff;
+    font-weight: 300;
 }
 
-.navbar > li {float: left;}
+.navbar > li {
+  float: left;
+}
 
 .navbar > li a {
     display: inline-block;
-    color: #f2f2f2;
+    color: #fff;
     text-align: center;
     padding: 12px 16px;
     text-decoration: none;
@@ -31,11 +36,10 @@ body{
 .navbar > li a:hover {background-color: #F9CF00;}
 
 .introduction {
-  color: #fff;
+  color: #6B7A8F;
   text-align: center;
-  margin-top: 5em;
-  margin-bottom: 5em;
   font-weight: 200;
+  max-width: 60em;
 }
 
 h1{
@@ -45,6 +49,11 @@ h1{
 h2{
   font-weight: 300;
   font-size: 1.5em;
+}
+
+.images{
+  max-width: 80em;
+  margin-bottom: 1em;
 }
 
 .imgcontainer {
@@ -64,14 +73,18 @@ span{
   padding: .5em;
 }
 
+
 .wrapper{
-  margin-top: 5em;
   display:flex;
   align-items:center;
   justify-content:center;
   background-repeat:no-repeat;
   background-size:cover;
+  background-color: #6B7A8F;
+  height: 10em;
+  margin-bottom: auto;
 }
+
 input{
   color:#333;
   box-sizing:border-box;
