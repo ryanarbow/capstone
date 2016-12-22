@@ -15,6 +15,7 @@ class ProfileExtractor:
         reviews = []
         ratings = []
         city = []
+        states = []
         #Extract fee
         fee = soup.findAll('span', {'class': 'dv-selected-service-rate__price'})[0].text.strip()
         #Extract total number of reviews
@@ -41,17 +42,20 @@ class ProfileExtractor:
         else:
             rating = 0
         town = soup.findAll('div', {'class': 'dv-profile-booking__address'})[0].text.strip().split(',')[0]
+        state = soup.findAll('div', {'class': 'dv-profile-booking__address'})[0].text.strip().split(',')[1].strip()[:2]
         fees.append(fee)
         reviews.append(review)
         ratings.append(rating)
         times.append(response_time)
         city.append(town)
+        states.append(state)
     
         df = pd.DataFrame({'fee':fees,
                            'review':reviews,
                            'rating':ratings,
                            'response_time': times,
-                           'town':city})
+                           'town':city,
+                           'state':states})
         print(df)
         
 def test():
