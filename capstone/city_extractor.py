@@ -31,6 +31,7 @@ class DVExtractor:
     def __init__(self):
         self.data_dir = 'crawl/' 
         self.cities_crawl()
+        self.cities_data = {}
 
     def cities_crawl(self):
         # this builds the crawled data for cities 
@@ -121,7 +122,6 @@ class DVExtractor:
                            'rating':ratings,
                            'town':city, 
                            'response_time': times})
-        
         df['response_time'] = df['response_time'].astype(str)
         df['review'] = df['review'].astype(str)
         df['response_time'] = df['response_time'].map(lambda x: 1 if 'minutes' in x else 2 if 'hour' in x else 3)
@@ -136,8 +136,12 @@ class DVExtractor:
         df1.rename(columns={'fee': 'fee_mean', 'rating': 'rating_mean', 'response_time': 'response_time_mean', 'review': 'review_mean'}, inplace=True)
         df2.rename(columns={'fee': 'fee_max', 'rating': 'rating_max', 'response_time': 'response_time_max', 'review': 'review_max'}, inplace=True)
         df3.rename(columns={'fee': 'fee_min', 'rating': 'rating_min', 'response_time': 'response_time_min', 'review': 'review_min'}, inplace=True)
-        result = pd.concat([df1, df2, df3], axis=1)
-        print(result)
+        df = pd.concat([df1, df2, df3], axis=1)
+        self.cities_data[city] = df
+        
+    def get_data_for_city(self, city):
+        return self.cities_data[city]
+    
 def test():
     test1 = DVExtractor()
     test1.data_for_cities()

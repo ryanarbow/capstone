@@ -58,6 +58,7 @@ class ProfileExtractor:
                            'state':states})
         print(df)
         
+        
 def test():
     test1 = ProfileExtractor()
     test1.data_for_profile("https://dogvacay.com/best-care-in-the-west-end-dog-boarding-242304?default_service=boarding")
