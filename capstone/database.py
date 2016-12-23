@@ -18,17 +18,21 @@ class User(Base):
     url = Column(String)
     city = Column(String)
     
-class Profile(Base):
+class Profile_Analysis(Base):
     __tablename__ = "username_profile"
     
     id = Column(Integer, primary_key=True)
     price_min = Column(Integer)
+    price_mean = Column(Integer)
     price_max = Column(Integer)
     rating_min = Column(Integer)
+    rating_mean = Column(Integer)
     rating_max = Column(Integer)
     reviews_min = Column(Integer)
+    reviews_mean = Column(Integer)
     reviews_max = Column(Integer)
     response_time_min = Column(Integer)
+    response_time_mean = Column(Integer)
     response_time_max = Column(Integer)
     
 Base.metadata.create_all(engine)
