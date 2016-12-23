@@ -17,6 +17,10 @@ class User(Base):
     id = Column(Integer, primary_key=True)
     url = Column(String)
     city = Column(String)
+    price = Column(Integer)
+    rating = Column(Integer)
+    review = Column(Integer)
+    response_time = Column(Integer)
     
 class Profile_Analysis(Base):
     __tablename__ = "username_profile"
@@ -28,9 +32,9 @@ class Profile_Analysis(Base):
     rating_min = Column(Integer)
     rating_mean = Column(Integer)
     rating_max = Column(Integer)
-    reviews_min = Column(Integer)
-    reviews_mean = Column(Integer)
-    reviews_max = Column(Integer)
+    review_min = Column(Integer)
+    review_mean = Column(Integer)
+    review_max = Column(Integer)
     response_time_min = Column(Integer)
     response_time_mean = Column(Integer)
     response_time_max = Column(Integer)
