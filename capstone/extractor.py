@@ -24,17 +24,17 @@ class ProfileExtractor:
         city = []
         states = []
         #Extract fee
-        fee = soup.findAll('span', {'class': 'dv-selected-service-rate__price'})[0].text.strip()
+        fee = soup.findAll('span', {'class': 'dv-selected-service-rate__price'})[0].text.strip()[1:]
         #Extract total number of reviews
         profile = soup.findAll('span', {'data-scroll-link': 'profile-reviews'})
         if profile is not None and len(profile) > 0:
-            review = soup.findAll('span', {'data-scroll-link': 'profile-reviews'})[0].text.strip()
+            review = soup.findAll('span', {'data-scroll-link': 'profile-reviews'})[0].text.replace('Reviews', '').replace('Review', '').strip()
         else:
             review = 0
         #Extract response time
         response = soup.findAll('li', {'class': 'dv-profile-list__item'})
         if response is not None and len(response) > 0:
-            response_time = soup.findAll('li', {'class': 'dv-profile-list__item'})[1].text.strip()
+            response_time = soup.findAll('li', {'class': 'dv-profile-list__item'})[1].text.replace('Responds within', '').strip()
         else:
             response_time = 0
         #Extract star rating
@@ -62,6 +62,8 @@ class ProfileExtractor:
                            'response_time': times,
                            'town':city,
                            'state':states})
+        df1['response_time'] = df1['response_time'].map(lambda x: 1 if 'minutes' in x else 2 if 'hour' in x else 3)
+        df1['review'] = df1['review'].map(lambda x: 0 if 'Testimonial' in x else x)  
         self.user_city = df1['town']
         self.user_state = df1['state']
         print(df1)
@@ -162,27 +164,29 @@ class DVExtractor(ProfileExtractor):
                            'rating':ratings,
                            'town':city, 
                            'response_time': times})
-        df2['response_time'] = df['response_time'].astype(str)
-        df2['review'] = df['review'].astype(str)
-        df2['response_time'] = df['response_time'].map(lambda x: 1 if 'minutes' in x else 2 if 'hour' in x else 3)
-        df2['review'] = df['review'].map(lambda x: 0 if 'Testimonial' in x else x)                   
-        df2['response_time'] = df['response_time'].astype(int)
-        df2['rating'] = df['rating'].astype(int)
-        df2['fee'] = df['fee'].astype(int)
-        df2['review'] = df['review'].astype(float)
-        df_1 = df.groupby('town').mean()
-        df_2 = df.groupby('town').max()
-        df_3 = df.groupby('town').min()
+        df2['response_time'] = df2['response_time'].astype(str)
+        df2['review'] = df2['review'].astype(str)
+        df2['response_time'] = df2['response_time'].map(lambda x: 1 if 'minutes' in x else 2 if 'hour' in x else 3)
+        df2['review'] = df2['review'].map(lambda x: 0 if 'Testimonial' in x else x)                   
+        df2['response_time'] = df2['response_time'].astype(int)
+        df2['rating'] = df2['rating'].astype(int)
+        df2['fee'] = df2['fee'].astype(int)
+        df2['review'] = df2['review'].astype(float)
+        df_1 = df2.groupby('town').mean()
+        df_2 = df2.groupby('town').max()
+        df_3 = df2.groupby('town').min()
         df_1.rename(columns={'fee': 'fee_mean', 'rating': 'rating_mean', 'response_time': 'response_time_mean', 'review': 'review_mean'}, inplace=True)
         df_2.rename(columns={'fee': 'fee_max', 'rating': 'rating_max', 'response_time': 'response_time_max', 'review': 'review_max'}, inplace=True)
         df_3.rename(columns={'fee': 'fee_min', 'rating': 'rating_min', 'response_time': 'response_time_min', 'review': 'review_min'}, inplace=True)
         df2 = pd.concat([df_1, df_2, df_3], axis=1)
         print(df2)
         
+        
 def test():
     test1 = ProfileExtractor("https://dogvacay.com/best-care-in-the-west-end-dog-boarding-242304?default_service=boarding")
     test1.data_for_profile("https://dogvacay.com/best-care-in-the-west-end-dog-boarding-242304?default_service=boarding")
     test2 = DVExtractor(test1)
+    
 
 if __name__ == "__main__":
     test()
