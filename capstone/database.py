@@ -9,7 +9,9 @@ Base = declarative_base()
 Session = sessionmaker(bind=engine)
 session = Session()
 
-from sqlalchemy import Column, Integer, String
+import datetime
+from sqlalchemy import Column, Integer, String, DateTime, ForeignKey
+from sqlalchemy.orm import relationship
 
 class User(Base):
     __tablename__ = "user"
@@ -21,9 +23,10 @@ class User(Base):
     rating = Column(Integer)
     review = Column(Integer)
     response_time = Column(Integer)
+    profile_analysis = relationship("Profile_Analysis")
     
 class Profile_Analysis(Base):
-    __tablename__ = "username_profile"
+    __tablename__ = "profile_analysis"
     
     id = Column(Integer, primary_key=True)
     price_min = Column(Integer)
@@ -38,5 +41,7 @@ class Profile_Analysis(Base):
     response_time_min = Column(Integer)
     response_time_mean = Column(Integer)
     response_time_max = Column(Integer)
+    timestamp = Column(DateTime, default=datetime.datetime.now)
+    user_id = Column(Integer, ForeignKey('user.id'))
     
 Base.metadata.create_all(engine)
