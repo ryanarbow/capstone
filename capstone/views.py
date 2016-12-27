@@ -4,11 +4,11 @@ from . import app
 from .database import session, User
 from .extractor2 import ProfileExtractor
 
-@app.route("/")
+@app.route("/", methods=["GET"])
 def landing_page():
     return render_template("landing_page.html")
 
-@app.route('/', methods=["GET"])
+@app.route('/', methods=["POST"])
 def analysis_for_user():
     url = request.form['url']
     profile_ext = ProfileExtractor()
