@@ -4,7 +4,7 @@
 
 .introduction,
 .images,
-.wrapper{
+.form-group{
   text-align: center;
   font-family: 'Open Sans';
   margin-left: auto;
@@ -74,7 +74,7 @@ span{
 }
 
 
-.wrapper{
+.form-group{
   display:flex;
   align-items:center;
   justify-content:center;
