@@ -12,3 +12,4 @@ app.config.from_object(config_path)
 #files will make use of app object
 from . import views
 from . import filters
+from . import extractor2

@@ -12,7 +12,10 @@ def landing_page():
 def analysis_for_user():
     url = request.form['url']
     profile_ext = ProfileExtractor()
-    profile_ext.data_for_profile(url)
+    profile_ext.data_for_profile(urlDVeXTRACTOR)
+    
+    pass to analysis_page
+    
     user = session.query(User).filter_by(id=id).first()
     user.url = request.form["url"]
     session.add(user)
