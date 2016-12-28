@@ -42,6 +42,6 @@ class Profile_Analysis(Base):
     response_time_mean = Column(Integer)
     response_time_max = Column(Integer)
     timestamp = Column(DateTime, default=datetime.datetime.now)
-    user_id = Column(Integer, ForeignKey('user.id'))
+    user_url = Column(Integer, ForeignKey('user.url'))
     
 Base.metadata.create_all(engine)
