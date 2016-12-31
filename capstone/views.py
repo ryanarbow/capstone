@@ -2,7 +2,8 @@ from flask import render_template
 from flask import request, redirect, url_for
 from . import app
 from .database import session, User, Profile_Analysis
-import extractor2 
+import capstone
+import extractor2
 
 @app.route("/", methods=["GET"])
 def landing_page():
@@ -12,7 +13,7 @@ def landing_page():
 def analysis_for_user():
     url = request.form['url']
     pr_ext = extractor2.ProfileExtractor(url)
-    user_data = pr_ext.data_for_profile(extractor2.DVExtractor)
+    user_data = pr_ext.data_for_profile(capstone.DVExtractor)
     profile_analysis = session.query(Profile_Analysis).filter_by(id=id).first()
     profile_analysis.price_min = (user_data.loc['fee_min'])
     profile_analysis.price_mean = (user_data.loc['fee_mean']) 

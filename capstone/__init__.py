@@ -16,4 +16,4 @@ from . import filters
  
 from . import extractor2
 
-DV_EXTRACTOR = extractor2.DVExtractor()
+DVExtractor = extractor2.DVExtractor()

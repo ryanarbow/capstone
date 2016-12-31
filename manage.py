@@ -13,16 +13,5 @@ def run():
     app.run(host='0.0.0.0', port=port)
     
 
-#def adduser():
-#    user = User(
-#       url= "",
-#        city=city,
-#        price = price,
-#        rating = rating,
-#        review = review,
-#        response_time = response_time
-#        )
-#        session.save(user)
-
 if __name__ == "__main__":
     manager.run()
