@@ -1,7 +1,7 @@
 import os
 from flask.ext.script import Manager
 from capstone import app
-from capstone.database import session, User, Profile_Analysis
+# from capstone.database import session, User, Profile_Analysis
 
 #create instance of Manager object
 manager = Manager(app)

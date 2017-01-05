@@ -13,7 +13,6 @@ app.config.from_object(config_path)
 from . import views
 from . import filters
 
- 
 from . import extractor2
 
 DVExtractor = extractor2.DVExtractor()
