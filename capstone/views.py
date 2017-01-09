@@ -1,7 +1,7 @@
 from flask import render_template
 from flask import request, redirect, url_for
 from . import app
-from .database import session, User, Profile_Analysis
+from .database import session, Profile_Analysis#, User
 import capstone
 from capstone import extractor2
 
@@ -14,10 +14,13 @@ def analysis_for_user():
     url = request.form['url']
     pr_ext = extractor2.ProfileExtractor(url)
     user_data = pr_ext.data_for_profile(capstone.DVExtractor)
+    price_min = (user_data.loc['fee_min'])
+    price_mean = (user_data.loc['fee_mean'])
+    price_max = (user_data.loc['fee_max'])
     profile_analysis = Profile_Analysis()
     profile_analysis.price_min = (user_data.loc['fee_min'])
-    #profile_analysis.price_mean = (user_data.loc['fee_mean']) 
-    #profile_analysis.price_max = (user_data.loc['fee_max'])
+    profile_analysis.price_mean = (user_data.loc['fee_mean']) 
+    profile_analysis.price_max = (user_data.loc['fee_max'])
     #profile_analysis.rating_min = (user_data.loc['rating_min'])
     #profile_analysis.rating_mean = (user_data.loc['rating_mean'])
     #profile_analysis.rating_max = (user_data.loc['rating_max'])
@@ -27,14 +30,15 @@ def analysis_for_user():
     #profile_analysis.response_time_min = (user_data.loc['response_time_min'])
     #profile_analysis.response_time_mean = (user_data.loc['response_time_mean'])
     #profile_analysis.response_time_max = (user_data.loc['response_time_max'])
-    #session.add(profile_analysis)
-    #session.commit()
-    return redirect(url_for("profile_get"))
+    session.add(profile_analysis)
+    session.commit()
+    #return redirect(url_for("profile_get"))
+    return render_template("analysis_page.html", price_min=price_min, price_mean=price_mean, price_max=price_max)
     
-@app.route("/profile", methods=["GET"])
-def profile_get():
+#@app.route("/profile", methods=["GET"])
+#def profile_get():
     #profile_analysis = session.query(Profile_Analysis).get(id)
-    price_min = profile_analysis.price_min
+    #price_min = profile_analysis.price_min
     #price_mean = profile_analysis.price_mean
     #price_max = profile_analysis.price_max
     #rating_min = profile_analysis.rating_min
@@ -46,4 +50,4 @@ def profile_get():
     #response_time_min = profile_analysis.response_time_min
     #response_time_mean = profile_analysis.response_time_mean
     #response_time_max = profile_analysis.response_time_max
-    return render_template("analysis_page.html", price_min=price_min)
+#    return render_template("analysis_page.html", price_min=price_min)
