@@ -14,9 +14,6 @@ def analysis_for_user():
     url = request.form['url']
     pr_ext = extractor2.ProfileExtractor(url)
     user_data = pr_ext.data_for_profile(capstone.DVExtractor)
-    price_min = (user_data.loc['fee_min'])
-    price_mean = (user_data.loc['fee_mean'])
-    price_max = (user_data.loc['fee_max'])
     profile_analysis = Profile_Analysis()
     profile_analysis.price_min = (user_data.loc['fee_min'])
     profile_analysis.price_mean = (user_data.loc['fee_mean']) 
@@ -32,15 +29,16 @@ def analysis_for_user():
     #profile_analysis.response_time_max = (user_data.loc['response_time_max'])
     session.add(profile_analysis)
     session.commit()
-    #return redirect(url_for("profile_get"))
-    return render_template("analysis_page.html", price_min=price_min, price_mean=price_mean, price_max=price_max)
+    return redirect(url_for("profile_get"))
+    #return render_template("analysis_page.html") 
     
-#@app.route("/profile", methods=["GET"])
-#def profile_get():
-    #profile_analysis = session.query(Profile_Analysis).get(id)
-    #price_min = profile_analysis.price_min
-    #price_mean = profile_analysis.price_mean
-    #price_max = profile_analysis.price_max
+@app.route("/profile", methods=["GET"]) #add/<int:id>/
+def profile_get(): #pass id
+    #profile = session.query(Profile_Analysis).first()
+    profile = session.query(Profile_Analysis).get(2)
+    price_min = profile.price_min
+    price_mean = profile.price_mean
+    price_max = profile.price_max
     #rating_min = profile_analysis.rating_min
     #rating_mean = profile_analysis.rating_mean 
     #rating_max = profile_analysis.rating_max 
@@ -50,4 +48,4 @@ def analysis_for_user():
     #response_time_min = profile_analysis.response_time_min
     #response_time_mean = profile_analysis.response_time_mean
     #response_time_max = profile_analysis.response_time_max
-#    return render_template("analysis_page.html", price_min=price_min)
+    return render_template("analysis_page.html", price_min=price_min, price_mean=price_mean, price_max=price_max)
