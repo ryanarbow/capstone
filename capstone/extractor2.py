@@ -62,7 +62,7 @@ class ProfileExtractor(object):
                            'state':states})
         df1['response_time'] = df1['response_time'].map(lambda x: 1 if 'minutes' in x else 2 if 'hour' in x else 3)
         df1['review'] = df1['review'].map(lambda x: 0 if 'Testimonial' in x else x)  
-        print(df1)
+        #print(df1)
         return dv_ext.data_for_user(town)
 
 cities = [['tx', "austin"], [ 'ca' , 'los-angeles'], ['ma', 'boston']]
