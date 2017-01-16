@@ -15,12 +15,12 @@ class ProfileExtractor(object):
         r = requests.get(self.url)
         data = r.text
         soup = BeautifulSoup(data, "lxml")
-        times = []
-        fees = []
-        reviews = []
-        ratings = []
-        city = []
-        states = []
+        #times = []
+        #fees = []
+        #reviews = []
+        #ratings = []
+        #city = []
+        #states = []
         #Extract fee
         fee = soup.findAll('span', {'class': 'dv-selected-service-rate__price'})[0].text.strip()[1:]
         #Extract total number of reviews
@@ -48,22 +48,21 @@ class ProfileExtractor(object):
             rating = 0
         town = soup.findAll('div', {'class': 'dv-profile-booking__address'})[0].text.strip().split(',')[0]
         state = soup.findAll('div', {'class': 'dv-profile-booking__address'})[0].text.strip().split(',')[1].strip()[:2]
-        fees.append(fee)
-        reviews.append(review)
-        ratings.append(rating)
-        times.append(response_time)
-        city.append(town)
-        states.append(state)
-        df1 = pd.DataFrame({'fee':fees,
-                           'review':reviews,
-                           'rating':ratings,
-                           'response_time': times,
-                           'town':city,
-                           'state':states})
-        df1['response_time'] = df1['response_time'].map(lambda x: 1 if 'minutes' in x else 2 if 'hour' in x else 3)
-        df1['review'] = df1['review'].map(lambda x: 0 if 'Testimonial' in x else x)  
-        #print(df1)
-        return dv_ext.data_for_user(town)
+        #fees.append(fee)
+        #reviews.append(review)
+        #ratings.append(rating)
+        #times.append(response_time)
+        #city.append(town)
+        #states.append(state)
+        user_data = {"fees": fee,
+                    "reviews":review,
+                    "ratings":rating,
+                    "times": response_time,
+                    "city":town,
+                    "states":state}
+        #df1['response_time'] = df1['response_time'].map(lambda x: 1 if 'minutes' in x else 2 if 'hour' in x else 3)
+        #df1['review'] = df1['review'].map(lambda x: 0 if 'Testimonial' in x else x)  
+        return (user_data, dv_ext.data_for_user(town))
 
 cities = [['tx', "austin"], [ 'ca' , 'los-angeles'], ['ma', 'boston']]
 
