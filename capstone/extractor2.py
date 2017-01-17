@@ -54,15 +54,17 @@ class ProfileExtractor(object):
         #times.append(response_time)
         #city.append(town)
         #states.append(state)
-        user_data = {"fees": fee,
-                    "reviews":review,
-                    "ratings":rating,
-                    "times": response_time,
-                    "city":town,
-                    "states":state}
+        user_data = {
+            "fees": fee,
+            "reviews":review,
+            "ratings":rating,
+            "times": response_time,
+            "city":town,
+            "states":state
+        }
         #df1['response_time'] = df1['response_time'].map(lambda x: 1 if 'minutes' in x else 2 if 'hour' in x else 3)
         #df1['review'] = df1['review'].map(lambda x: 0 if 'Testimonial' in x else x)  
-        return (user_data, dv_ext.data_for_user(town))
+        return (user_data, dv_ext.data_for_user(town)) 
 
 cities = [['tx', "austin"], [ 'ca' , 'los-angeles'], ['ma', 'boston']]
 
@@ -185,9 +187,9 @@ class DVExtractor(object):
 #    dv_ext = DVExtractor()
 #    user_url = "https://dogvacay.com/best-care-in-the-west-end-dog-boarding-242304?default_service=boarding"
 #    pr_ext = ProfileExtractor(user_url)
-#    user_data = pr_ext.data_for_profile(dv_ext)
+#    user_city_data = pr_ext.data_for_profile(dv_ext)[1]
 #    print("============ User Data:")
-#    print(user_data)
+#    print(user_city_data)
 
 #if __name__ == "__main__":
 #    test()
