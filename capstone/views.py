@@ -29,6 +29,7 @@ def analysis_for_user():
     #profile_analysis.response_time_mean = (user_data.loc['response_time_mean'])
     #profile_analysis.response_time_max = (user_data.loc['response_time_max'])
     session.add(profile_analysis)
+    #session.query()
     session.commit()
     return redirect(url_for("profile_get"))
     #return render_template("analysis_page.html") 
