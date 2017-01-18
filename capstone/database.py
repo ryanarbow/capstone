@@ -13,13 +13,13 @@ import datetime
 from sqlalchemy import Column, Integer, String, DateTime, ForeignKey
 from sqlalchemy.orm import relationship
 
-#class User(Base):
-#    __tablename__ = "user"
+class User(Base):
+    __tablename__ = "user"
 
-#    id = Column(Integer, primary_key=True)
-#    url = Column(String)
-#    city = Column(String)
-#    price = Column(Integer)
+    id = Column(Integer, primary_key=True)
+    url = Column(String)
+    city = Column(String)
+    price = Column(Integer)
 #    rating = Column(Integer)
 #    review = Column(Integer)
 #    response_time = Column(Integer)
@@ -41,7 +41,7 @@ class Profile_Analysis(Base):
     #response_time_min = Column(Integer)
     #response_time_mean = Column(Integer)
     #response_time_max = Column(Integer)
-    #timestamp = Column(DateTime, default=datetime.datetime.now)
+    timestamp = Column(DateTime, default=datetime.datetime.now)
     #user_url = Column(Integer, ForeignKey('user.url'))
     
 Base.metadata.create_all(engine)
