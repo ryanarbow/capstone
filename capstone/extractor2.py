@@ -187,9 +187,9 @@ class DVExtractor(object):
 #    dv_ext = DVExtractor()
 #    user_url = "https://dogvacay.com/best-care-in-the-west-end-dog-boarding-242304?default_service=boarding"
 #    pr_ext = ProfileExtractor(user_url)
-#    user_city_data = pr_ext.data_for_profile(dv_ext)[1]
+#    user_city_data = pr_ext.data_for_profile(dv_ext)[0]
 #    print("============ User Data:")
-#    print(user_city_data)
+#    print((user_city_data)['fees'])
 
 #if __name__ == "__main__":
 #    test()

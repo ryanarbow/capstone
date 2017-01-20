@@ -13,16 +13,16 @@ import datetime
 from sqlalchemy import Column, Integer, String, DateTime, ForeignKey
 from sqlalchemy.orm import relationship
 
-class User(Base):
-    __tablename__ = "user"
+class Entry(Base):
+    __tablename__ = "entry"
 
     id = Column(Integer, primary_key=True)
     url = Column(String)
     city = Column(String)
     price = Column(Integer)
-#    rating = Column(Integer)
-#    review = Column(Integer)
-#    response_time = Column(Integer)
+    #rating = Column(Integer)
+    review = Column(Integer)
+    response_time = Column(Integer)
 #    profile_analysis = relationship("Profile_Analysis")
     
 class Profile_Analysis(Base):

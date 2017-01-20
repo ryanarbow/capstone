@@ -1,7 +1,7 @@
 from flask import render_template
 from flask import request, redirect, url_for
 from . import app
-from .database import session, Profile_Analysis, User
+from .database import session, Profile_Analysis, Entry
 import capstone
 from capstone import extractor2
 
@@ -15,9 +15,8 @@ def analysis_for_user():
     pr_ext = extractor2.ProfileExtractor(url)
     user_city_data = pr_ext.data_for_profile(capstone.DVExtractor)[1]
     user_profile_data = pr_ext.data_for_profile(capstone.DVExtractor)[0]
-    #profile_analysis = Profile_Analysis()
-    user = User()
-    #profile_analysis.price_min = (user_city_data.loc['fee_min'])
+    profile_analysis = Profile_Analysis()
+    profile_analysis.price_min = (user_city_data.loc['fee_min'])
     #profile_analysis.price_mean = (user_city_data.loc['fee_mean']) 
     #profile_analysis.price_max = (user_city_data.loc['fee_max'])
     #profile_analysis.rating_min = (user_data.loc['rating_min'])
@@ -29,11 +28,15 @@ def analysis_for_user():
     #profile_analysis.response_time_min = (user_data.loc['response_time_min'])
     #profile_analysis.response_time_mean = (user_data.loc['response_time_mean'])
     #profile_analysis.response_time_max = (user_data.loc['response_time_max'])
-    user.url = (user_city_data.loc['fee_max'])
-    user.city = "test"
-    user.price = (user_city_data.loc['fee_max'])
-    #session.add(profile_analysis)
-    session.add(user)
+    entry = Entry()
+    entry.url = url
+    entry.city = (user_profile_data)['city']
+    entry.price = (user_profile_data)['fees']
+    #entry.rating = (user_profile_data)['ratings']
+    entry.review = (user_profile_data)['reviews']
+    entry.response_time = (user_profile_data)['times']
+    session.add(profile_analysis)
+    session.add(entry)
     #session.query()
     session.commit()
     return redirect(url_for("profile_get"))
