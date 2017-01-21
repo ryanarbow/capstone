@@ -17,24 +17,24 @@ def analysis_for_user():
     user_profile_data = pr_ext.data_for_profile(capstone.DVExtractor)[0]
     profile_analysis = Profile_Analysis()
     profile_analysis.price_min = (user_city_data.loc['fee_min'])
-    #profile_analysis.price_mean = (user_city_data.loc['fee_mean']) 
-    #profile_analysis.price_max = (user_city_data.loc['fee_max'])
-    #profile_analysis.rating_min = (user_data.loc['rating_min'])
-    #profile_analysis.rating_mean = (user_data.loc['rating_mean'])
-    #profile_analysis.rating_max = (user_data.loc['rating_max'])
-    #profile_analysis.review_min = (user_data.loc['review_min'])
-    #profile_analysis.review_mean = (user_data.loc['review_mean'])
-    #profile_analysis.review_max = (user_data.loc['review_max'])
-    #profile_analysis.response_time_min = (user_data.loc['response_time_min'])
-    #profile_analysis.response_time_mean = (user_data.loc['response_time_mean'])
-    #profile_analysis.response_time_max = (user_data.loc['response_time_max'])
+    profile_analysis.price_mean = (user_city_data.loc['fee_mean']) 
+    profile_analysis.price_max = (user_city_data.loc['fee_max'])
+    profile_analysis.rating_min = (user_city_data.loc['rating_min'])
+    profile_analysis.rating_mean = (user_city_data.loc['rating_mean'])
+    profile_analysis.rating_max = (user_city_data.loc['rating_max'])
+    profile_analysis.review_min = (user_city_data.loc['review_min'])
+    profile_analysis.review_mean = (user_city_data.loc['review_mean'])
+    profile_analysis.review_max = (user_city_data.loc['review_max'])
+    profile_analysis.response_time_min = (user_city_data.loc['response_time_min'])
+    profile_analysis.response_time_mean = (user_city_data.loc['response_time_mean'])
+    profile_analysis.response_time_max = (user_city_data.loc['response_time_max'])
     entry = Entry()
     entry.url = url
     entry.city = (user_profile_data)['city']
     entry.price = (user_profile_data)['fees']
     #entry.rating = (user_profile_data)['ratings']
-    entry.review = (user_profile_data)['reviews']
-    entry.response_time = (user_profile_data)['times']
+    #entry.review = (user_profile_data)['reviews']
+    #entry.response_time = (user_profile_data)['times']
     session.add(profile_analysis)
     session.add(entry)
     #session.query()

@@ -29,12 +29,20 @@ class ProfileExtractor(object):
             review = soup.findAll('span', {'data-scroll-link': 'profile-reviews'})[0].text.replace('Reviews', '').replace('Review', '').strip()
         else:
             review = 0
+        if 'Testimonial' in review:
+            review = 0
         #Extract response time
         response = soup.findAll('li', {'class': 'dv-profile-list__item'})
         if response is not None and len(response) > 0:
             response_time = soup.findAll('li', {'class': 'dv-profile-list__item'})[1].text.replace('Responds within', '').strip()
         else:
             response_time = 0
+        if 'minutes' in response_time:
+            response_time = 1
+        elif 'hour' in response_time:
+            response_time = 2
+        else:
+            response_time = 3
         #Extract star rating
         stars = review_stars = soup.findAll('ul', {'class': 'rating dv-review-stars'})
         if stars is not None and len(stars) > 0:
@@ -183,14 +191,14 @@ class DVExtractor(object):
         print(self.c_df)
         return self.c_df.loc[user_city]
 
-#def test():
-#    dv_ext = DVExtractor()
-#    user_url = "https://dogvacay.com/best-care-in-the-west-end-dog-boarding-242304?default_service=boarding"
-#    pr_ext = ProfileExtractor(user_url)
-#    user_city_data = pr_ext.data_for_profile(dv_ext)[0]
-#    print("============ User Data:")
-#    print((user_city_data)['fees'])
+def test():
+    dv_ext = DVExtractor()
+    user_url = "https://dogvacay.com/best-care-in-the-west-end-dog-boarding-242304?default_service=boarding"
+    pr_ext = ProfileExtractor(user_url)
+    user_city_data = pr_ext.data_for_profile(dv_ext)[0]
+    print("============ User Data:")
+    print(user_city_data)
 
-#if __name__ == "__main__":
-#    test()
+if __name__ == "__main__":
+    test()
     
