@@ -23,7 +23,7 @@ class Entry(Base):
     rating = Column(Integer)
     review = Column(Integer)
     response_time = Column(Integer)
-    profile_analysis = relationship("Profile_Analysis")
+    #profile_analysis = relationship("Profile_Analysis")
     
 class Profile_Analysis(Base):
     __tablename__ = "profile_analysis"
@@ -42,6 +42,6 @@ class Profile_Analysis(Base):
     response_time_mean = Column(Integer)
     response_time_max = Column(Integer)
     timestamp = Column(DateTime, default=datetime.datetime.now)
-    entry_url = Column(Integer, ForeignKey('entry.url'))
+    #entry_url = Column(Integer, ForeignKey('entry.url'))
     
 Base.metadata.create_all(engine)
