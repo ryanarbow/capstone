@@ -16,14 +16,14 @@ from sqlalchemy.orm import relationship
 class Entry(Base):
     __tablename__ = "entry"
 
-    id = Column(Integer, primary_key=True)
-    url = Column(String)
+    #id = Column(Integer, primary_key=True)
+    url = Column(String, primary_key=True)
     city = Column(String)
     price = Column(Integer)
     rating = Column(Integer)
     review = Column(Integer)
     response_time = Column(Integer)
-    #profile_analysis = relationship("Profile_Analysis")
+    city_profile = relationship("Profile_Analysis", backref="entry")
     
 class Profile_Analysis(Base):
     __tablename__ = "profile_analysis"
@@ -42,6 +42,6 @@ class Profile_Analysis(Base):
     response_time_mean = Column(Integer)
     response_time_max = Column(Integer)
     timestamp = Column(DateTime, default=datetime.datetime.now)
-    #entry_url = Column(Integer, ForeignKey('entry.url'))
+    entry_url = Column(Integer, ForeignKey('entry.url'))
     
 Base.metadata.create_all(engine)
