@@ -40,8 +40,7 @@ class Profile_Analysis(Base):
     review_max = Column(Integer)
     response_time_min = Column(Integer)
     response_time_mean = Column(Integer)
-    response_time_max = Column(Integer)
     timestamp = Column(DateTime, default=datetime.datetime.now)
-    entry_url = Column(Integer, ForeignKey('entry.url'))
+    entry_url = Column(String, ForeignKey('entry.url'))
     
 Base.metadata.create_all(engine)
