@@ -39,13 +39,14 @@ def analysis_for_user():
     session.add(entry)
     #session.query()
     session.commit()
-    return redirect(url_for("profile_get"))
+    return redirect(url_for("profile_get", url=url))
     #return render_template("analysis_page.html") 
     
 @app.route("/profile", methods=["GET"]) #add/<int:id>/
 def profile_get(): #pass id
     #profile = session.query(Profile_Analysis).first()
-    profile = session.query(Profile_Analysis).get(61)
+    url = request.args['url']
+    profile = session.query(Profile_Analysis).get(1)
     price_min = profile.price_min
     price_mean = profile.price_mean
     price_max = profile.price_max
@@ -58,7 +59,7 @@ def profile_get(): #pass id
     response_time_min = profile.response_time_min
     response_time_mean = profile.response_time_mean
     response_time_max = profile.response_time_max
-    user = session.query(Entry).get(11)
+    user = session.query(Entry).get(url)
     city = user.city
     price = user.price
     rating = user.rating
