@@ -35,6 +35,9 @@ def analysis_for_user():
     entry.rating = (user_profile_data)['ratings']
     entry.review = (user_profile_data)['reviews']
     entry.response_time = (user_profile_data)['times']
+    if session.query(Entry).filter_by(url=url).first():
+        session.add(entry)
+        session.commit()
     session.add(profile_analysis)
     session.add(entry)
     #session.query()
@@ -42,8 +45,8 @@ def analysis_for_user():
     return redirect(url_for("profile_get", url=url))
     #return render_template("analysis_page.html") 
     
-@app.route("/profile", methods=["GET"]) #add/<int:id>/
-def profile_get(): #pass id
+@app.route("/profile", methods=["GET"])
+def profile_get():
     #profile = session.query(Profile_Analysis).first()
     url = request.args['url']
     profile = session.query(Profile_Analysis).get(1)
