@@ -29,15 +29,18 @@ def analysis_for_user():
     profile_analysis.response_time_mean = (user_city_data.loc['response_time_mean'])
     profile_analysis.response_time_max = (user_city_data.loc['response_time_max'])
     entry = Entry()
-    entry.url = url
-    entry.city = (user_profile_data)['city']
-    entry.price = (user_profile_data)['fees']
-    entry.rating = (user_profile_data)['ratings']
-    entry.review = (user_profile_data)['reviews']
-    entry.response_time = (user_profile_data)['times']
+    if session.query(Entry).filter_by(url=url).first():
+        session.query(Entry).get(url)
+    else:
+        entry.url = url
+        entry.city = (user_profile_data)['city']
+        entry.price = (user_profile_data)['fees']
+        entry.rating = (user_profile_data)['ratings']
+        entry.review = (user_profile_data)['reviews']
+        entry.response_time = (user_profile_data)['times']
+        session.add(entry)
     session.add(profile_analysis)
-    session.add(entry)
-    #session.query()
+    session.query()
     session.commit()
     return redirect(url_for("profile_get", url=url))
     #return render_template("analysis_page.html") 
