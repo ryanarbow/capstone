@@ -130,7 +130,7 @@ class DVExtractor(object):
             # all the code in pynb in #Data extraction phase
             # returns the pandas data frame
             filename = self.data_dir + src
-            print('Processing: ' + filename)
+            #print('Processing: ' + filename)
             f = open(filename, 'r')
             data = f.read()
             f.close()

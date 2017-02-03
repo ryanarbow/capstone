@@ -35,7 +35,7 @@ def analysis_for_user():
     entry.rating = (user_profile_data)['ratings']
     entry.review = (user_profile_data)['reviews']
     entry.response_time = (user_profile_data)['times']
-    if session.query(Entry).filter_by(url=url).first():
+    if session.query(Entry).filter_by(url=url):
         session.add(entry)
         session.commit()
     session.add(profile_analysis)
