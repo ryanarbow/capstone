@@ -46,7 +46,7 @@ def analysis_for_user():
     #return render_template("analysis_page.html") 
     
 @app.route("/profile", methods=["GET"]) #add/<int:id>/
-def profile_get(): #pass id
+def profile_get():
     #profile = session.query(Profile_Analysis).first()
     url = request.args['url']
     profile = session.query(Profile_Analysis).get(1)
@@ -68,6 +68,7 @@ def profile_get(): #pass id
     rating = user.rating
     review = user.review
     response_time = user.response_time
+
     return render_template("analysis_page.html", price_min=price_min, 
                             price_mean=price_mean, price_max=price_max,
                             rating_min=rating_min, rating_mean=rating_mean,

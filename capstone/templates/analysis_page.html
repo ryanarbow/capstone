@@ -7,14 +7,36 @@
         <!-- CSS -->
         <!-- Bootstrap -->
         <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+        
         <!-- Blog -->
         <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
 
         <!-- JavaScript -->
         <!-- jQuery -->
-        <script src="http://code.jquery.com/jquery-2.1.1.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.js"></script>
         <!-- Bootstrap -->
         <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+             <link href = "https://code.jquery.com/ui/1.10.4/themes/ui-lightness/jquery-ui.css"
+         rel = "stylesheet">
+        <script src = "https://code.jquery.com/jquery-1.10.2.js"></script>
+        <script src = "https://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+        
+        <style>
+           .ui-widget-header {
+              background: #cedc98;
+              border: 1px solid #DDDDDD;
+              color: #333333;
+              font-weight: bold;
+           }
+        </style>
+        
+        <script>
+           $(function() {
+              $( "#progressbar-1" ).progressbar({
+                 value: {{ price_max }}
+              });
+           });
+        </script>
     </head>
      <table style="width:100%; height: 7px"; border="0" cellspacing="0" cellpadding="0">
         <tr>
@@ -33,8 +55,8 @@
         <div class="swatch1">
           <p>Price</p>
           <div class="swatch" id="c5">
-            <p>{{ price }}</p>
-            <progress max="100" value={{ price }}</progress>
+            <p>{{ price_max }}</p>
+            <div id = "progressbar-1"></div>
           </div>
         </div>
         <div class="swatch2">
