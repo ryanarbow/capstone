@@ -21,19 +21,10 @@
         <script src = "https://code.jquery.com/jquery-1.10.2.js"></script>
         <script src = "https://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
         
-        <style>
-           .ui-widget-header {
-              background: #cedc98;
-              border: 1px solid #DDDDDD;
-              color: #333333;
-              font-weight: bold;
-           }
-        </style>
-        
         <script>
            $(function() {
               $( "#progressbar-1" ).progressbar({
-                 value: {{ price_max }}
+                 value: 50
               });
            });
         </script>
@@ -55,8 +46,10 @@
         <div class="swatch1">
           <p>Price</p>
           <div class="swatch" id="c5">
-            <p>{{ price_max }}</p>
-            <div id = "progressbar-1"></div>
+          <p>{{ price_max }}</p>
+            <div class="box">
+              <div id = "progressbar-1"></div>
+            </div>
           </div>
         </div>
         <div class="swatch2">

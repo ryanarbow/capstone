@@ -152,30 +152,19 @@ p {
   border-bottom-right-radius: .5em;
 }
 
-/*#progress[value] {
-  appearance: none;
-  border: none;
-  width: 400px; 
-  height: 30px;
-  background-color: whiteSmoke;
-  margin-left: 3em;
-  margin-top: 4em;
-}
-*/
-
-#progressBar {
+.box{
   width: 400px;
-  height: 22px;
-  border: 1px solid #111;
-  background-color: #292929;
+  margin-left: 2em;
+  margin-top: 2em;
 }
-#progressBar div {
-  height: 100%;
-  color: #fff;
-  text-align: right;
-  line-height: 22px; /* same as #progressBar height if we want text middle aligned */
-  width: 0;
-  background-color: #0099ff;
+
+.box .ui-widget-header {
+  background: #8cc641;
+  color: #333333;
+  border: none;
+  height: 50px;
+  margin-left: 10em;
+  margin-top: 14em;
 }
 
 .verticalLine {
