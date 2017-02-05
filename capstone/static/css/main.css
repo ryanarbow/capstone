@@ -162,21 +162,43 @@ p {
   background: #8cc641;
   color: #333333;
   border: none;
+  width: 100px;
   height: 50px;
   margin-left: 10em;
   margin-top: 14em;
 }
 
-.verticalLine {
-    border-left: 1px solid #c5c5c5;
-    color: #c5c5c5;
-    font-family: verdana;
-    font-size: 12px;
-    height: 60px;
-    left: 210px;
-    line-height: 100px;
-    overflow: hidden;
-    position: absolute;
-    top: 53px;
-    vertical-align: bottom;
+.box .min {
+  font-family: sans-serif;
+  font-weight: normal;
+  color: #333;
+  text-align: left;
+  position: absolute;
+  top: 28px;
+  color: #c5c5c5;
+  font-size: 12px;
+}
+.box .max {
+  font-family: sans-serif;
+  font-weight: normal;
+  color: #333;
+  position: absolute;
+  top: 28px;
+  left: 340px;
+  color: #c5c5c5;
+  font-size: 12px;
+}
+
+.box .verticalLine {
+  border-left: 1px solid #c5c5c5;
+  color: #c5c5c5;
+  font-family: verdana;
+  font-size: 12px;
+  height: 60px;
+  left: 210px;
+  line-height: 100px;
+  overflow: hidden;
+  position: absolute;
+  top: 53px;
+  vertical-align: bottom;
 }
