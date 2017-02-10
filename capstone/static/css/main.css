@@ -168,23 +168,23 @@ p {
   margin-top: 14em;
 }
 
-.box .min {
+.box .p1 {
   font-family: sans-serif;
   font-weight: normal;
   color: #333;
   text-align: left;
   position: absolute;
   top: 28px;
+  left: 10px;
   color: #c5c5c5;
   font-size: 12px;
 }
-.box .max {
+.box .p2 {
   font-family: sans-serif;
   font-weight: normal;
   color: #333;
   position: absolute;
   top: 28px;
-  left: 340px;
   color: #c5c5c5;
   font-size: 12px;
 }
