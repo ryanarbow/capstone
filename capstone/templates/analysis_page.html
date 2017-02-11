@@ -24,7 +24,7 @@
         <script>
            $(function() {
               $( "#progressbar-1" ).progressbar({
-                 value: 50
+                 value: {{ price }}
               });
            });
         </script>
@@ -45,15 +45,15 @@
       <div class="swatchblock">
         <div class="swatch1">
           <p>Price</p>
-          <div class="swatch" id="c5">
-          <p>{{ price_max }}</p>
+          <div class="swatch">
+            <p>Price</p>
             <div class="box">
-              <div id = "progressbar-1"> {{ price }} </div>
-              <p1>{{ price_min }}</p1>
-              <p2>{{ price_max }}</p2>          
-              <div id ="verticalLine">{{ price_mean }}</div>
+              <div id = "progressbar"></div>
+              <h4>50</h4>
+              <h5>50</h5>
+              <div class="verticalLine">35% Discount</div>
             </div>
-          </div>
+        </div>
         </div>
         <div class="swatch2">
           <p>Reviews</p>

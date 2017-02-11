@@ -158,6 +158,11 @@ p {
   margin-top: 2em;
 }
 
+#progressbar {
+  width: 100%;
+  height: 30px;
+}
+
 .box .ui-widget-header {
   background: #8cc641;
   color: #333333;
@@ -168,37 +173,30 @@ p {
   margin-top: 14em;
 }
 
-.box .p1 {
+h4 {
   font-family: sans-serif;
   font-weight: normal;
-  color: #333;
-  text-align: left;
-  position: absolute;
-  top: 28px;
-  left: 10px;
-  color: #c5c5c5;
-  font-size: 12px;
+  color: #F7882F;
+  float: left;
 }
-.box .p2 {
+
+h5 {
   font-family: sans-serif;
   font-weight: normal;
-  color: #333;
-  position: absolute;
-  top: 28px;
-  color: #c5c5c5;
-  font-size: 12px;
+  color: #F7882F;
+  float: right;
 }
 
 .box .verticalLine {
-  border-left: 1px solid #c5c5c5;
-  color: #c5c5c5;
-  font-family: verdana;
-  font-size: 12px;
-  height: 60px;
-  left: 210px;
-  line-height: 100px;
-  overflow: hidden;
-  position: absolute;
-  top: 53px;
-  vertical-align: bottom;
+    border-left: 2px solid;
+    color: #c5c5c5;
+    font-family: verdana;
+    font-size: 10px;
+    height: 6em;
+    left: 16em;
+    line-height: 10.5em;
+    overflow: hidden;
+    position: absolute;
+    top: 0em;
+    vertical-align: bottom;
 }
