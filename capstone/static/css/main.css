@@ -133,7 +133,7 @@ p {
 
 .swatch1,
 .swatch2 {
-  width: 475px;
+  width: 33em;
   margin: 2em;
   background: #F7882F;
   color: white;
@@ -155,7 +155,7 @@ p {
 .box{
   width: 400px;
   margin-left: 2em;
-  margin-top: 2em;
+  margin-top: 4em;
 }
 
 #progressbar {
@@ -187,7 +187,7 @@ h5 {
   float: right;
 }
 
-.box .verticalLine {
+verticalLine {
     border-left: 2px solid;
     color: #c5c5c5;
     font-family: verdana;
