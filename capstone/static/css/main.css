@@ -150,27 +150,16 @@ p {
   color: #002744;
   border-bottom-left-radius: .5em;
   border-bottom-right-radius: .5em;
+  position: relative;
 }
 
 .box{
   width: 400px;
   margin-left: 2em;
   margin-top: 4em;
-}
-
-#progressbar {
-  width: 100%;
-  height: 30px;
-}
-
-.box .ui-widget-header {
-  background: #8cc641;
-  color: #333333;
-  border: none;
-  width: 100px;
-  height: 50px;
-  margin-left: 10em;
-  margin-top: 14em;
+  overflow: hidden;
+  float: left;
+  
 }
 
 h4 {
@@ -187,16 +176,15 @@ h5 {
   float: right;
 }
 
-verticalLine {
-    border-left: 2px solid;
+
+.verticalLine {
+    border-left: 2px solid #c5c5c5;
     color: #c5c5c5;
     font-family: verdana;
     font-size: 10px;
-    height: 6em;
-    left: 16em;
-    line-height: 10.5em;
-    overflow: hidden;
+    height: 4em;
     position: absolute;
-    top: 0em;
-    vertical-align: bottom;
+    left: 23.35em;
+    top: 13.05em;
+    line-height: 7em; 
 }
