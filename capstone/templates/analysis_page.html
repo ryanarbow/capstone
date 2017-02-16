@@ -24,28 +24,28 @@
         <script>
         $( function() {
           $( "#progressbar" ).progressbar({
-            value: {{ price }}
+            value: {{ price }}/{{ price_max }}*100
           });
         } );
         </script>
         <script>
           $( function() {
             $( "#progressbar-1" ).progressbar({
-              value: {{ rating }}
+              value: {{ rating }}/{{ rating_max }}*100
             });
           } );
           </script>
           <script>
           $( function() {
             $( "#progressbar-2" ).progressbar({
-              value: {{ review }}
+              value: {{ review }}/{{ review_max }}*100
             });
           } );
           </script>
       <script>
           $( function() {
             $( "#progressbar-3" ).progressbar({
-              value: {{ response_time }}
+              value: {{ response_time }}/{{ response_time_max }}*100
             });
           } );
           </script>
@@ -67,10 +67,10 @@
         <div class="swatch1">
           <p>Price</p>
           <div class="swatch">
-            <p>Price</p>
+            <p>The boarding price of {{ city }} varies with a low of {{ price_min }}, average of {{ price_mean }}, and high of {{ price_max }}. Your price is {{ price }}.</p>
             <div class="box">
               <div id = "progressbar"></div>
-              <h4>{{ price_min }}</h4>
+              <h4>{{ price_min }} </h4>
               <h5>{{ price_max }} </h5>
             </div>
             <div class="verticalLine"> Mean {{ price_mean }}</div>
@@ -79,13 +79,13 @@
         <div class="swatch2">
           <p>Reviews</p>
           <div class="swatch">
-            <p>Price</p>
+            <p>The profile reviews of {{ city }} vary with a low of {{ review_min }}, average of {{ review_mean }}, and high of {{ review_max }}. Your review is {{ review }}.</p>
             <div class="box">
               <div id = "progressbar-2"></div>
-              <h4>50</h4>
-              <h5>50</h5>
+              <h4>{{ review_min }}</h4>
+              <h5>{{ review_max }}</h5>
             </div>
-            <div class="verticalLine">Discount 35%</div>
+            <div class="verticalLine"> Mean {{ review_mean }}</div>
           </div>
         </div>
       </div>
@@ -93,24 +93,24 @@
         <div class="swatch1">
           <p>Ratings</p>
           <div class="swatch" id="c7">
-            <p>Price</p>
+            <p>The profile ratings of {{ city }} vary with a low of {{ rating_min }}, average of {{ rating_mean }}, and high of {{ rating_max }}. Your rating is {{ rating }}.</p>
             <div class="box">
               <div id = "progressbar-1"></div>
-              <h4>50</h4>
-              <h5>50</h5>
+              <h4>{{ rating_min }}</h4>
+              <h5>{{ rating_max }}</h5>
             </div>
-            <div class="verticalLine">Discount 35%</div>
+            <div class="verticalLine">Mean {{ rating_mean }}</div>
           </div>
         </div>
         <div class="swatch2">
           <p>Response Time</p>
           <div class="swatch">
-            <p>Price</p>
+            <p>The profile response time of {{ city }} vary with a low of {{ response_time_min }}, average of {{ response_time_mean }}, and high of {{ response_time_max }}. Your response time is {{ response_time }}.</p>
             <div class="box">
               <div id = "progressbar-3"></div>
-              <h4>50</h4>
-              <h5>50</h5>
-              <div class="verticalLine">Discount 35%</div>
+              <h4>{{ response_time_min }}</h4>
+              <h5>{{ response_time_max }}</h5>
+              <div class="verticalLine">Mean {{ response_time_mean }}</div>
             </div>
           </div>
         </div>
