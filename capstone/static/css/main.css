@@ -147,7 +147,7 @@ p {
 .swatch {
   height: 200px;
   background: #6B7A8F;
-  color: #002744;
+  color: #c5c5c5;
   border-bottom-left-radius: .5em;
   border-bottom-right-radius: .5em;
   position: relative;
@@ -162,17 +162,21 @@ p {
   
 }
 
-h4 {
+#progressbar{
+}
+
+
+#min {
   font-family: sans-serif;
   font-weight: normal;
-  color: #F7882F;
+  color: #c5c5c5;
   float: left;
 }
 
-h5 {
+#max {
   font-family: sans-serif;
   font-weight: normal;
-  color: #F7882F;
+  color: #c5c5c5;
   float: right;
 }
 
