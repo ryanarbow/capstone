@@ -133,7 +133,7 @@ p {
 
 .swatch1,
 .swatch2 {
-  width: 475px;
+  width: 33em;
   margin: 2em;
   background: #F7882F;
   color: white;
@@ -147,7 +147,48 @@ p {
 .swatch {
   height: 200px;
   background: #6B7A8F;
-  color: #002744;
+  color: #c5c5c5;
   border-bottom-left-radius: .5em;
   border-bottom-right-radius: .5em;
+  position: relative;
+}
+
+.box{
+  width: 400px;
+  margin-left: 2em;
+  margin-top: 4em;
+  overflow: hidden;
+  float: left;
+  
+}
+
+#progressbar{
+}
+
+
+#min {
+  font-family: sans-serif;
+  font-weight: normal;
+  color: #c5c5c5;
+  float: left;
+}
+
+#max {
+  font-family: sans-serif;
+  font-weight: normal;
+  color: #c5c5c5;
+  float: right;
+}
+
+
+.verticalLine {
+    border-left: 2px solid #c5c5c5;
+    color: #c5c5c5;
+    font-family: verdana;
+    font-size: 10px;
+    height: 4em;
+    position: absolute;
+    left: 23.35em;
+    top: 13.05em;
+    line-height: 7em; 
 }
