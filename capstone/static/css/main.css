@@ -147,7 +147,7 @@ p {
 .swatch {
   height: 200px;
   background: #6B7A8F;
-  color: #c5c5c5;
+  color: #002744;
   border-bottom-left-radius: .5em;
   border-bottom-right-radius: .5em;
   position: relative;
@@ -162,21 +162,17 @@ p {
   
 }
 
-#progressbar{
-}
-
-
-#min {
+h4 {
   font-family: sans-serif;
   font-weight: normal;
-  color: #c5c5c5;
+  color: #F7882F;
   float: left;
 }
 
-#max {
+h5 {
   font-family: sans-serif;
   font-weight: normal;
-  color: #c5c5c5;
+  color: #F7882F;
   float: right;
 }
 
@@ -191,4 +187,15 @@ p {
     left: 23.35em;
     top: 13.05em;
     line-height: 7em; 
+}
+
+#min {
+    float: left; /* If you want to center it */
+    line-height: 30px; /* Set the line-height to the same as the height of the progress bar container, to center it vertically */
+    color: white;
+}
+#max {
+    float: right; /* If you want to center it */
+    line-height: 30px; /* Set the line-height to the same as the height of the progress bar container, to center it vertically */
+    color: white;
 }
