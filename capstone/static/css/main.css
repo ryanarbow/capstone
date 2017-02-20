@@ -162,40 +162,31 @@ p {
   
 }
 
-h4 {
-  font-family: sans-serif;
-  font-weight: normal;
-  color: #F7882F;
-  float: left;
-}
-
-h5 {
-  font-family: sans-serif;
-  font-weight: normal;
-  color: #F7882F;
-  float: right;
-}
-
-
-.verticalLine {
-    border-left: 2px solid #c5c5c5;
-    color: #c5c5c5;
-    font-family: verdana;
-    font-size: 10px;
-    height: 4em;
-    position: absolute;
-    left: 23.35em;
-    top: 13.05em;
-    line-height: 7em; 
-}
 
 #min {
-    float: left; /* If you want to center it */
-    line-height: 30px; /* Set the line-height to the same as the height of the progress bar container, to center it vertically */
+    float: left; 
+    line-height: 30px; 
     color: white;
 }
 #max {
-    float: right; /* If you want to center it */
-    line-height: 30px; /* Set the line-height to the same as the height of the progress bar container, to center it vertically */
+    float: right; 
+    line-height: 30px; 
     color: white;
+}
+
+#progressbar > .ui-progressbar-value {
+   background:#0288D1;
+   margin: 0px;
+}
+#progressbar-1 > .ui-progressbar-value {
+   background:#0288D1;
+   margin: 0px;
+}
+#progressbar-2 > .ui-progressbar-value {
+   background:#0288D1;
+   margin: 0px;
+}
+#progressbar-3 > .ui-progressbar-value {
+   background:#0288D1;
+   margin: 0px;
 }
