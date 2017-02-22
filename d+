@@ -1,0 +1,9 @@
+                                List of relations
+ Schema |          Name           |   Type   | Owner  |    Size    | Description 
+--------+-------------------------+----------+--------+------------+-------------
+ public | alembic_version         | table    | ubuntu | 0 bytes    | 
+ public | entry                   | table    | ubuntu | 16 kB      | 
+ public | profile_analysis        | table    | ubuntu | 16 kB      | 
+ public | profile_analysis_id_seq | sequence | ubuntu | 8192 bytes | 
+(4 rows)
+
