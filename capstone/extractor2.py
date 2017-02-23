@@ -182,7 +182,7 @@ class DVExtractor(object):
         df_2.rename(columns={'fee': 'fee_max', 'rating': 'rating_max', 'response_time': 'response_time_max', 'review': 'review_max'}, inplace=True)
         df_3.rename(columns={'fee': 'fee_min', 'rating': 'rating_min', 'response_time': 'response_time_min', 'review': 'review_min'}, inplace=True)
         df2 = pd.concat([df_1, df_2, df_3], axis=1)
-        print(df2)
+        #print(df2)
         return df2
 
     def data_for_user(self, user_city):
