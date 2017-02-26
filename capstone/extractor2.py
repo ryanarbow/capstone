@@ -5,7 +5,8 @@ import sys
 import time
 import pandas as pd
 
-headers = {'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.124 Safari/537.36'}
+headers = {'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_0) \
+AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.124 Safari/537.36'}
 
 class ProfileExtractor(object):
     def __init__(self, url):
@@ -22,11 +23,13 @@ class ProfileExtractor(object):
         #city = []
         #states = []
         #Extract fee
-        fee = soup.findAll('span', {'class': 'dv-selected-service-rate__price'})[0].text.strip()[1:]
+        fee = soup.findAll('span', \
+        {'class':'dv-selected-service-rate__price'})[0].text.strip()[1:]
         #Extract total number of reviews
         profile = soup.findAll('span', {'data-scroll-link': 'profile-reviews'})
         if profile is not None and len(profile) > 0:
-            review = soup.findAll('span', {'data-scroll-link': 'profile-reviews'})[0].text.replace('Reviews', '').replace('Review', '').strip()
+            review = soup.findAll('span', \
+            {'data-scroll-link': 'profile-reviews'})[0].text.replace('Reviews', '').replace('Review', '').strip()
         else:
             review = 0
         if 'Testimonial' in review:
@@ -96,8 +99,10 @@ class DVExtractor(object):
             print(k, v)
             time.sleep(1)
             while running:
-                url = "https://dogvacay.com/dog-boarding--" + str(k) + "--" + str(v) +"?p="+str(page)
-                filename = datadir + str(k) + '-' + str(v) + '-' + str(page) + '.htm'
+                url = "https://dogvacay.com/dog-boarding--" + str(k) + "--" + \
+                str(v) +"?p="+str(page)
+                filename = datadir + str(k) + '-' + str(v) + '-' + str(page) + \
+                '.htm'
                 if not(os.path.isfile(filename)):
                     sys.stdout.write('-')
                     r = requests.get(url, headers=headers)
@@ -112,7 +117,8 @@ class DVExtractor(object):
                     data = f.read()
                     f.close()
                 soup = BeautifulSoup(data, "lxml")
-                pagination_links = soup.findAll('a', {'class': 'pagination-link'})
+                pagination_links = soup.findAll('a', \
+                {'class': 'pagination-link'})
                 running = False
                 for pl in pagination_links:
                     if pl.text.find('Next') == 0:
@@ -169,7 +175,8 @@ class DVExtractor(object):
                            'response_time': times})
         df2['response_time'] = df2['response_time'].astype(str)
         df2['review'] = df2['review'].astype(str)
-        df2['response_time'] = df2['response_time'].map(lambda x: 1 if 'minutes' in x else 2 if 'hour' in x else 3)
+        df2['response_time'] = df2['response_time'].map(lambda x: 1 if \
+        'minutes' in x else 2 if 'hour' in x else 3)
         df2['review'] = df2['review'].map(lambda x: 0 if 'Testimonial' in x else x)                   
         df2['response_time'] = df2['response_time'].astype(int)
         df2['rating'] = df2['rating'].astype(int)
@@ -178,9 +185,15 @@ class DVExtractor(object):
         df_1 = df2.groupby('town').mean()
         df_2 = df2.groupby('town').max()
         df_3 = df2.groupby('town').min()
-        df_1.rename(columns={'fee': 'fee_mean', 'rating': 'rating_mean', 'response_time': 'response_time_mean', 'review': 'review_mean'}, inplace=True)
-        df_2.rename(columns={'fee': 'fee_max', 'rating': 'rating_max', 'response_time': 'response_time_max', 'review': 'review_max'}, inplace=True)
-        df_3.rename(columns={'fee': 'fee_min', 'rating': 'rating_min', 'response_time': 'response_time_min', 'review': 'review_min'}, inplace=True)
+        df_1.rename(columns={'fee': 'fee_mean', 'rating': 'rating_mean', \
+        'response_time': 'response_time_mean', 'review': 'review_mean'}, \
+        inplace=True)
+        df_2.rename(columns={'fee': 'fee_max', 'rating': 'rating_max', \
+        'response_time': 'response_time_max', 'review': 'review_max'}, \
+        inplace=True)
+        df_3.rename(columns={'fee': 'fee_min', 'rating': 'rating_min', \
+        'response_time': 'response_time_min', 'review': 'review_min'}, \
+        inplace=True)
         df2 = pd.concat([df_1, df_2, df_3], axis=1)
         #print(df2)
         return df2
@@ -201,4 +214,3 @@ def test():
 
 if __name__ == "__main__":
     test()
-    
