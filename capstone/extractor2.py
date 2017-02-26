@@ -47,7 +47,8 @@ class ProfileExtractor(object):
         else:
             response_time = 3
         #Extract star rating
-        stars = review_stars = soup.findAll('ul', {'class': 'rating dv-review-stars'})
+        stars = review_stars = soup.findAll('ul', {'class': \
+        'rating dv-review-stars'})
         if stars is not None and len(stars) > 0:
             review_stars = soup.findAll('ul', {'class': 'rating dv-review-stars'})[0]
             full_star = review_stars.findAll('i', {'class': ' dv-icon dv-icon__star '})
