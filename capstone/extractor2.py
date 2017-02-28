@@ -84,9 +84,9 @@ cities = [['tx', "austin"], ['ca', 'los-angeles'], ['ma', 'boston']]
 
 
 class DVExtractor(object):
-    def _init_(self, data_dir=None):
+    def __init__(self, data_dir=None):
         if not data_dir:
-            self.data_dir = '/crawl'
+            self.data_dir = 'crawl/'
         else:
             self.data_dir = data_dir
         self.crawl_cities()
