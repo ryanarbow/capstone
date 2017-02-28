@@ -29,9 +29,6 @@ class TestViews(unittest.TestCase):
     def test_add_user_analysis(self):
         response = self.client.post("/", data={
             "url": "https://dogvacay.com/best-care-in-the-west-end-dog-boarding-242304?default_service=boarding",
-            "price_min": "5",
-            "price_mean":"10",
-            "price_max": "100"
         })
         ### Add to test
         #"rating_min": "5",
@@ -58,9 +55,9 @@ class TestViews(unittest.TestCase):
         entry = entries[0]
         test_profile = profile_analysis[0]
         self.assertEqual(entry.url, "https://dogvacay.com/best-care-in-the-west-end-dog-boarding-242304?default_service=boarding")
-        self.assertEqual(test_profile.price_min, 5)
-        self.assertEqual(test_profile.price_mean, 10)
-        self.assertEqual(test_profile.price_max,100)
+        #self.assertEqual(test_profile.price_min, 5)
+        #self.assertEqual(test_profile.price_mean, 10)
+        #self.assertEqual(test_profile.price_max,100)
         ###Add to test
         #self.assertEqual(test_profile.rating_min, "0")
         #self.assertEqual(test_profile.rating_mean, "1")
@@ -71,7 +68,7 @@ class TestViews(unittest.TestCase):
         #self.assertEqual(test_profile.response_time_min, "0")
         #self.assertEqual(test_profile.response_time_mean,"1)
         #self.assertEqual(test_profile.response_time_max,"2")
-        #self.assertEqual(test_entry.city, "Boston")
+        self.assertEqual(entry.city, "Boston")
         #self.assertEqual(test_entry.price, "40")
         #self.assertEqual(test_entry.rating, "5")
         #self.assertEqual(test_entry.review, "20")

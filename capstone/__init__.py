@@ -11,7 +11,7 @@ app.config.from_object(config_path)
 #importing after the object has been created
 #files will make use of app object
 from . import views
-from . import filters
+#from . import filters
 
  
 from . import extractor2
