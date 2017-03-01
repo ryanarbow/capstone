@@ -80,7 +80,7 @@ class ProfileExtractor(object):
         return (user_data, dv_ext.data_for_user(town))
 
 
-cities = [['tx', "austin"], ['ca', 'los-angeles'], ['ma', 'boston']]
+cities = [['ma', 'boston']]
 
 
 class DVExtractor(object):
@@ -103,7 +103,7 @@ class DVExtractor(object):
             v = city[1]
             running = True
             page = 1
-            print(k, v)
+            # print(k, v)
             time.sleep(1)
             while running:
                 url = "https://dogvacay.com/dog-boarding--" + str(k) + "--" + \

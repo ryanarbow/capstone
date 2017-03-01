@@ -30,21 +30,6 @@ class TestViews(unittest.TestCase):
         response = self.client.post("/", data={
             "url": "https://dogvacay.com/best-care-in-the-west-end-dog-boarding-242304?default_service=boarding",
         })
-        ### Add to test
-        #"rating_min": "5",
-        #"rating_mean": "1",
-        #"rating_max":"2",
-        #"review_min":"0",
-        #"review_mean":"1",
-        #"review_max": "2",
-        #"response_time_min, "0",
-        #"response_time_mean,"1,
-        #"response_time_max,"2",
-        #"city": "Boston",
-        #"price": "40",
-        #"rating": "5",
-        #"review": "20",
-        #"response_time":"2"
 
         self.assertEqual(response.status_code, 302)
         self.assertEqual(urlparse(response.location).path, "/profile")
@@ -55,7 +40,7 @@ class TestViews(unittest.TestCase):
         entry = entries[0]
         test_profile = profile_analysis[0]
         self.assertEqual(entry.url, "https://dogvacay.com/best-care-in-the-west-end-dog-boarding-242304?default_service=boarding")
-        #self.assertEqual(test_profile.price_min, 5)
+        #self.assertEqual(test_profile.price_min, 15)
         #self.assertEqual(test_profile.price_mean, 10)
         #self.assertEqual(test_profile.price_max,100)
         ###Add to test
@@ -69,10 +54,10 @@ class TestViews(unittest.TestCase):
         #self.assertEqual(test_profile.response_time_mean,"1)
         #self.assertEqual(test_profile.response_time_max,"2")
         self.assertEqual(entry.city, "Boston")
-        #self.assertEqual(test_entry.price, "40")
-        #self.assertEqual(test_entry.rating, "5")
-        #self.assertEqual(test_entry.review, "20")
-        #self.assertEqual(test_entry.response_time, "2")
+        self.assertEqual(entry.price, 40)
+        self.assertEqual(entry.rating, 5)
+        self.assertEqual(entry.review, 21)
+        self.assertEqual(entry.response_time, 2)
     
         
 if __name__ == "__main__":
