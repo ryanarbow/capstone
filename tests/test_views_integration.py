@@ -20,6 +20,7 @@ class TestViews(unittest.TestCase):
         # Set up the tables in the database
         Base.metadata.create_all(engine)
     
+    
     def tearDown(self):
         """ Test teardown """
         session.close()
@@ -30,7 +31,6 @@ class TestViews(unittest.TestCase):
         response = self.client.post("/", data={
             "url": "https://dogvacay.com/best-care-in-the-west-end-dog-boarding-242304?default_service=boarding",
         })
-
         self.assertEqual(response.status_code, 302)
         self.assertEqual(urlparse(response.location).path, "/profile")
         entries = session.query(Entry).all()
@@ -41,24 +41,35 @@ class TestViews(unittest.TestCase):
         test_profile = profile_analysis[0]
         self.assertEqual(entry.url, "https://dogvacay.com/best-care-in-the-west-end-dog-boarding-242304?default_service=boarding")
         #self.assertEqual(test_profile.price_min, 15)
-        #self.assertEqual(test_profile.price_mean, 10)
-        #self.assertEqual(test_profile.price_max,100)
-        ###Add to test
-        #self.assertEqual(test_profile.rating_min, "0")
-        #self.assertEqual(test_profile.rating_mean, "1")
-        #self.assertEqual(test_profile.rating_max, "2")
-        #self.assertEqual(test_profile.review_min,"0)
-        #self.assertEqual(test_profile.review_mean,"1") 
-        #self.assertEqual(test_profile.review_max, "2)
-        #self.assertEqual(test_profile.response_time_min, "0")
-        #self.assertEqual(test_profile.response_time_mean,"1)
-        #self.assertEqual(test_profile.response_time_max,"2")
+        #self.assertEqual(test_profile.price_mean, 38.317221)
+        #self.assertEqual(test_profile.price_max, 100)
+        #self.assertEqual(test_profile.rating_min, 0)
+        #self.assertEqual(test_profile.rating_mean, 3.613293)
+        #self.assertEqual(test_profile.rating_max, 5)
+        #self.assertEqual(test_profile.review_min, 0.0)
+        #self.assertEqual(test_profile.review_mean,8.425982) 
+        #self.assertEqual(test_profile.review_max, 104.0)
+        #self.assertEqual(test_profile.response_time_min, 1)
+        #self.assertEqual(test_profile.response_time_mean, 1.691843)
+        #self.assertEqual(test_profile.response_time_max, 3)
         self.assertEqual(entry.city, "Boston")
         self.assertEqual(entry.price, 40)
         self.assertEqual(entry.rating, 5)
         self.assertEqual(entry.review, 21)
         self.assertEqual(entry.response_time, 2)
-    
+        
+    def test_profile_get(self):
+        response = self.client.post("/", data={
+            "url": "https://dogvacay.com/best-care-in-the-west-end-dog-boarding-242304?default_service=boarding",
+        })
+        self.assertEqual(response.status_code, 302)
+        self.assertEqual(urlparse(response.location).path, "/profile")
+        entries = session.query(Entry).all()
+        self.assertEqual(len(entries), 1)
+
+        entry = entries[0]
+        response = self.client.get("/")
+        self.assertEqual(response.status_code, 200)
         
 if __name__ == "__main__":
     unittest.main()
