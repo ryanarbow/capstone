@@ -16,6 +16,8 @@ class TestViews(unittest.TestCase):
     def setUp(self):
         """ Test setup """
         self.client = app.test_client()
+        self.test_dir = os.path.join(os.path.dirname(os.path.realpath(__file__)), 
+                   'test_crawl')
 
         # Set up the tables in the database
         Base.metadata.create_all(engine)
@@ -26,6 +28,7 @@ class TestViews(unittest.TestCase):
         session.close()
         # Remove the tables and their data from the database
         Base.metadata.drop_all(engine)
+        
        
     def test_add_user_analysis(self):
         response = self.client.post("/", data={
