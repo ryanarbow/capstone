@@ -4,6 +4,7 @@ from . import app
 from .database import session, Profile_Analysis, Entry
 import capstone
 from capstone import extractor2
+import os
 
 
 @app.route("/", methods=["GET"])
@@ -13,10 +14,14 @@ def landing_page():
 
 @app.route('/', methods=["POST"])
 def analysis_for_user():
+    if os.environ["CONFIG_PATH"] == "capstone.config.TestingConfig":
+        dv_ext = os.environ["TEST_DV_EXT"]
+    else:
+        dv_ext = capstone.DVExtractor
     url = request.form['url']
     pr_ext = extractor2.ProfileExtractor(url)
-    user_city_data = pr_ext.data_for_profile(capstone.DVExtractor)[1]
-    user_profile_data = pr_ext.data_for_profile(capstone.DVExtractor)[0]
+    user_city_data = pr_ext.data_for_profile(dv_ext)[1]
+    user_profile_data = pr_ext.data_for_profile(dv_ext)[0]
     profile_analysis = Profile_Analysis()
     profile_analysis.price_min = (user_city_data.loc['fee_min'])
     profile_analysis.price_mean = (user_city_data.loc['fee_mean'])

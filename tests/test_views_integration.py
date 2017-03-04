@@ -3,7 +3,8 @@ import unittest
 from urllib.parse import urlparse
 
 # Configuring the app to use the testing database
-os.environ["CONFIG_PATH"] = "capstone.config.TestingConfig"
+if not "CONFIG_PATH" in os.environ:
+    os.environ["CONFIG_PATH"] = "capstone.config.TestingConfig"
 
 import capstone
 from capstone import app
@@ -16,11 +17,16 @@ class TestViews(unittest.TestCase):
     def setUp(self):
         """ Test setup """
         self.client = app.test_client()
+        
         self.test_dir = os.path.join(os.path.dirname(os.path.realpath(__file__)), 
                    'test_crawl')
-
+                   
         # Set up the tables in the database
         Base.metadata.create_all(engine)
+    
+    
+    def test_SOMEX(self):
+        os.environ["TEST_DV_EXT"] = DVExtractor(data_dir=self.test_dir)
     
     
     def tearDown(self):
@@ -61,18 +67,18 @@ class TestViews(unittest.TestCase):
         self.assertEqual(entry.review, 21)
         self.assertEqual(entry.response_time, 2)
         
-    def test_profile_get(self):
-        response = self.client.post("/", data={
-            "url": "https://dogvacay.com/best-care-in-the-west-end-dog-boarding-242304?default_service=boarding",
-        })
-        self.assertEqual(response.status_code, 302)
-        self.assertEqual(urlparse(response.location).path, "/profile")
-        entries = session.query(Entry).all()
-        self.assertEqual(len(entries), 1)
+    # def test_profile_get(self):
+    #     response = self.client.post("/", data={
+    #         "url": "https://dogvacay.com/best-care-in-the-west-end-dog-boarding-242304?default_service=boarding",
+    #     })
+    #     self.assertEqual(response.status_code, 302)
+    #     self.assertEqual(urlparse(response.location).path, "/profile")
+    #     entries = session.query(Entry).all()
+    #     self.assertEqual(len(entries), 1)
 
-        entry = entries[0]
-        response = self.client.get("/")
-        self.assertEqual(response.status_code, 200)
+    #     entry = entries[0]
+    #     response = self.client.get("/")
+    #     self.assertEqual(response.status_code, 200)
         
 if __name__ == "__main__":
     unittest.main()
