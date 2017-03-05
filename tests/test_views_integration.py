@@ -19,14 +19,10 @@ class TestViews(unittest.TestCase):
         self.client = app.test_client()
         
         self.test_dir = os.path.join(os.path.dirname(os.path.realpath(__file__)), 
-                   'test_crawl')
+                   'test_crawl/')
                    
         # Set up the tables in the database
         Base.metadata.create_all(engine)
-    
-    
-    def test_SOMEX(self):
-        os.environ["TEST_DV_EXT"] = DVExtractor(data_dir=self.test_dir)
     
     
     def tearDown(self):
@@ -37,6 +33,7 @@ class TestViews(unittest.TestCase):
         
        
     def test_add_user_analysis(self):
+        os.environ["TEST_DV_EXT"] = DVExtractor(data_dir=self.test_dir)
         response = self.client.post("/", data={
             "url": "https://dogvacay.com/best-care-in-the-west-end-dog-boarding-242304?default_service=boarding",
         })
