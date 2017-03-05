@@ -33,7 +33,7 @@ class TestViews(unittest.TestCase):
         
        
     def test_add_user_analysis(self):
-        os.environ["TEST_DV_EXT"] = DVExtractor(data_dir=self.test_dir)
+        os.environ["TEST_DV_EXT"] = self.test_dir
         response = self.client.post("/", data={
             "url": "https://dogvacay.com/best-care-in-the-west-end-dog-boarding-242304?default_service=boarding",
         })
@@ -46,7 +46,7 @@ class TestViews(unittest.TestCase):
         entry = entries[0]
         test_profile = profile_analysis[0]
         self.assertEqual(entry.url, "https://dogvacay.com/best-care-in-the-west-end-dog-boarding-242304?default_service=boarding")
-        #self.assertEqual(test_profile.price_min, 15)
+        self.assertEqual(test_profile.price_min, 15)
         #self.assertEqual(test_profile.price_mean, 38.317221)
         #self.assertEqual(test_profile.price_max, 100)
         #self.assertEqual(test_profile.rating_min, 0)

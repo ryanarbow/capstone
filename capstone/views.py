@@ -15,7 +15,8 @@ def landing_page():
 @app.route('/', methods=["POST"])
 def analysis_for_user():
     if os.environ["CONFIG_PATH"] == "capstone.config.TestingConfig":
-        dv_ext = os.environ["TEST_DV_EXT"]
+        data_dir = os.environ["TEST_DV_EXT"]
+        dv_ext = extractor2.DVExtractor(data_dir)
     else:
         dv_ext = capstone.DVExtractor
     url = request.form['url']
