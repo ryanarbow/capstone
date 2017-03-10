@@ -78,6 +78,12 @@ def profile_get():
     rating = user.rating
     review = user.review
     response_time = user.response_time
+    if response_time == 1:
+        response_time = 'minutes'
+    elif response_time == 2:
+        response_time = 'hour'
+    else:
+        response_time = 'days'
 
     return render_template(
         "analysis_page.html",
