@@ -80,7 +80,7 @@ class ProfileExtractor(object):
         return (user_data, dv_ext.data_for_user(town))
 
 
-cities = [['ma', 'boston']]
+cities = [['tx', "austin"], ['ca', 'los-angeles'], ['ma', 'boston']]
 
 
 class DVExtractor(object):

@@ -147,7 +147,7 @@ p {
 .swatch {
   height: 200px;
   background: #6B7A8F;
-  color: #002744;
+  color: white;
   border-bottom-left-radius: .5em;
   border-bottom-right-radius: .5em;
   position: relative;
