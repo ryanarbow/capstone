@@ -39,6 +39,7 @@ def analysis_for_user():
         user_city_data.loc['response_time_mean'])
     profile_analysis.response_time_max = (
         user_city_data.loc['response_time_max'])
+    
     entry = Entry()
     if session.query(Entry).filter_by(url=url).first():
         session.query(Entry).get(url)
@@ -70,8 +71,26 @@ def profile_get():
     review_mean = profile.review_mean
     review_max = profile.review_max
     response_time_min = profile.response_time_min
+    if response_time_min == 1:
+        response_min = 'minutes'
+    elif response_time_min == 2:
+        response_min = 'hour'
+    else:
+        response_min = 'days'
     response_time_mean = profile.response_time_mean
+    if response_time_mean == 1:
+        response_mean = 'minutes'
+    elif response_time_mean == 2:
+        response_mean = 'hour'
+    else:
+        response_mean = 'days'
     response_time_max = profile.response_time_max
+    if response_time_max == 1:
+        response_max = 'minutes'
+    elif response_time_max == 2:
+        response_max = 'hour'
+    else:
+        response_max = 'days'
     user = session.query(Entry).get(url)
     city = user.city
     price = user.price
@@ -79,11 +98,11 @@ def profile_get():
     review = user.review
     response_time = user.response_time
     if response_time == 1:
-        response_time = 'minutes'
+        response = 'minutes'
     elif response_time == 2:
-        response_time = 'hour'
+        response = 'hour'
     else:
-        response_time = 'days'
+        response = 'days'
 
     return render_template(
         "analysis_page.html",
@@ -99,9 +118,14 @@ def profile_get():
         response_time_min=response_time_min,
         response_time_mean=response_time_mean,
         response_time_max=response_time_max,
+        response_min=response_min,
+        response_mean=response_mean,
+        response_max=response_max,
         city=city,
         price=price,
         rating=rating,
         review=review,
-        response_time=response_time
+        response_time=response_time,
+        response=response,
+        
         )

@@ -58,7 +58,7 @@
         </tr>
     </table>
     <div class="introduction">
-        <h1>Profile scores for insert below</h1>
+        <h1>Check out your profile scores below</h1>
         <h1>Click on the boxes below to learn how to improve.</h1>
     </div>
     <div class="container">
@@ -101,11 +101,11 @@
         <div class="swatch2">
           <p>Response Time</p>
           <div class="swatch">
-            <p>The profile response time of {{ city }} vary with a low of {{ response_time_min }}, average of {{ response_time_mean }}, and high of {{ response_time_max }}. Your response time is {{ response_time }}.</p>
+            <p>The profile response time of {{ city }} vary with a low of {{ response_min }}, average of {{ response_mean }}, and high of {{ response_max }}. Your response time is {{ response_time }}.</p>
             <div class="box">
               <div id = "progressbar-3"></div>
-              <div id="min">{{ response_time_min }}</div>
-              <div id="max">{{ response_time_max }}</div>
+              <div id="min">{{ response_min }}</div>
+              <div id="max">{{ response_max }}</div>
             </div>
           </div>
         </div>
