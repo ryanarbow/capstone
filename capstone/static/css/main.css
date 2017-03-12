@@ -190,3 +190,7 @@ p {
    background:#0288D1;
    margin: 0px;
 }
+
+meter{
+  width: 100%;
+}
