@@ -134,7 +134,7 @@ p {
 .swatch1,
 .swatch2 {
   width: 33em;
-  margin: 2em;
+  margin: 3em;
   background: #F7882F;
   color: white;
   border-radius: .5em;
@@ -156,10 +156,9 @@ p {
 .box{
   width: 400px;
   margin-left: 2em;
-  margin-top: 4em;
+  margin-top: 2em;
   overflow: hidden;
   float: left;
-  
 }
 
 
@@ -174,23 +173,68 @@ p {
     color: white;
 }
 
-#progressbar > .ui-progressbar-value {
-   background:#0288D1;
-   margin: 0px;
-}
-#progressbar-1 > .ui-progressbar-value {
-   background:#0288D1;
-   margin: 0px;
-}
-#progressbar-2 > .ui-progressbar-value {
-   background:#0288D1;
-   margin: 0px;
-}
-#progressbar-3 > .ui-progressbar-value {
-   background:#0288D1;
-   margin: 0px;
+meter {
+  width: 100%;
+  height: 25px;
+  margin: 0px;
+  background: #EEE;
+  text-align: left;
 }
 
-meter{
+.styled meter {
+  /* Reset the default appearance */
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+
   width: 100%;
+  height: 30px;
+  
+  /* For Firefox */
+  background: #EEE;
+  box-shadow: 0 2px 3px rgba(0,0,0,0.2) inset;
+  border-radius: 3px;
+}
+
+/* WebKit */
+.styled meter::-webkit-meter-bar {
+  background: #EEE;
+  box-shadow: 0 2px 3px rgba(0,0,0,0.2) inset;
+  border-radius: 3px;
+}
+
+.styled meter::-webkit-meter-optimum-value,
+.styled meter::-webkit-meter-suboptimum-value,
+.styled meter::-webkit-meter-even-less-good-value {
+  border-radius: 3px;
+}
+
+.styled meter::-webkit-meter-optimum-value {
+  background: #86CC00;
+}
+
+.styled meter::-webkit-meter-suboptimum-value {
+  background: #FFDB1A;
+}
+
+.styled meter::-webkit-meter-even-less-good-value  {
+  background: #CC4600;
+}
+
+
+/* Firefox */
+.styled meter::-moz-meter-bar {
+  border-radius: 3px;
+}
+
+.styled meter:-moz-meter-optimum::-moz-meter-bar {
+  background: #73AD05;
+}
+
+.styled meter:-moz-meter-sub-optimum::-moz-meter-bar {
+  background: #FFDB1A;
+}
+
+.styled meter:-moz-meter-sub-sub-optimum::-moz-meter-bar {
+  background: #CC4600;
 }
