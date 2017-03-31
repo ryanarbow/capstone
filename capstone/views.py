@@ -103,6 +103,12 @@ def profile_get():
         response = 'hour'
     else:
         response = 'days'
+    if price == price_mean:
+        result = "is on par with everyone else."
+    elif price > price_mean:
+        result = "is above the average price"
+    else:
+        result = "is below the average price"
 
     return render_template(
         "analysis_page.html",
