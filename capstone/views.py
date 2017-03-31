@@ -133,5 +133,4 @@ def profile_get():
         review=review,
         response_time=response_time,
         response=response,
-        result=result
         )
