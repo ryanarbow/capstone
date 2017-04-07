@@ -294,6 +294,6 @@ meter {
   background: #FFDB1A;
 }
 
-.styled meter:-moz-meter-sub-sub-optimum::-moz-meter-bar {
+.styled-1 meter:-moz-meter-sub-sub-optimum::-moz-meter-bar {
   background: #CC4600;
 }
