@@ -28,9 +28,6 @@ class ProfileExtractor(object):
                 replace('Reviews', '').replace('Review', '').strip()
         else:
             review = 0
-        if 'Testimonial' in review:
-            review = 0
-        # Extract response time
         response = soup.findAll('li', {'class': 'dv-profile-list__item'})
         if response is not None and len(response) > 0:
             response_time = soup.findAll('li', {
@@ -60,8 +57,8 @@ class ProfileExtractor(object):
         else:
             rating = 0
         town = soup.findAll(
-            'div', {'class': 'dv-profile-booking__address'})[0].text.strip()\
-            .split(',')[0]
+            'div', {'class': 'dv-profile-booking__address'})[0].text.split(',')\
+            [0].strip()
         state = soup.findAll(
             'div', {'class': 'dv-profile-booking__address'})[0].text.strip()\
             .split(',')[1].strip()[:2]
@@ -80,23 +77,23 @@ class ProfileExtractor(object):
         return (user_data, dv_ext.data_for_user(town))
 
 
-cities = [['tx', "austin"] ,
-          [ 'ca' , 'los-angeles'] ,
-          [ 'ga' , 'atlanta'] ,
-          [ 'ma' , 'boston'] ,
-          [ 'nc' , 'charlotte'] ,
-          [ 'tx' , 'dallas'] ,
-          [ 'fl' , 'miami'] , 
-          [ 'mn' , 'minneapolis'] ,
-          [ 'ny' , 'new-york'] , 
-          [ 'pa' , 'philadelphia'] ,
-          [ 'az' , 'phoenix'] ,
-          [ 'or' , 'portland'] ,
-          [ 'ca' , 'san-francisco'] ,
-          [ 'ca' , 'san-diego'] ,
-          [ 'wa' , 'seattle'] ,
-          [ 'dc' , 'washington'] ,
-          [ 'co' , 'denver']]
+cities = [[ 'ca' , 'los-angeles']] #['tx', "austin"] ,
+        #   [ 'ca' , 'los-angeles'] ,
+        #   [ 'ga' , 'atlanta'] ,
+        #   [ 'ma' , 'boston'] ,
+        #   [ 'nc' , 'charlotte'] ,
+        #   [ 'tx' , 'dallas'] ,
+        #   [ 'fl' , 'miami'] , 
+        #   [ 'mn' , 'minneapolis'] ,
+        #   [ 'ny' , 'new-york'] , 
+        #   [ 'pa' , 'philadelphia'] ,
+        #   [ 'az' , 'phoenix'] ,
+        #   [ 'or' , 'portland'] ,
+        #   [ 'ca' , 'san-francisco'] ,
+        #   [ 'ca' , 'san-diego'] ,
+        #   [ 'wa' , 'seattle'] ,
+        #   [ 'dc' , 'washington'] ,
+        #   [ 'co' , 'denver']]
 
 
 class DVExtractor(object):

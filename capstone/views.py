@@ -97,12 +97,12 @@ def profile_get():
     rating = user.rating
     review = user.review
     response_time = user.response_time
-    if response_time == 1:
-        response = 'minutes'
-    elif response_time == 2:
-        response = 'hour'
-    else:
-        response = 'days'
+    #if response_time == 1:
+    #    response = 'minutes'
+    #elif response_time == 2:
+    #    response = 'hour'
+    #else:
+    #    response = 'days'
     if price == price_mean:
         result = "is on par with everyone else."
     elif price > price_mean:
@@ -132,6 +132,6 @@ def profile_get():
         rating=rating,
         review=review,
         response_time=response_time,
-        response=response,
+        #response=response,
         result=result
         )
