@@ -94,6 +94,7 @@ input{
   font-size:18px;
   margin-right:20px;
 }
+
 button{
   background-color:#F7882F;
   border:2px solid white;
@@ -124,29 +125,33 @@ p {
   padding: .5em;
 }
 
-.swatchblock {
-  max-width: 500px;
-  margin: 1em;
-  height: 250px;
-  display: inline-block;
+.container{
+  text-align: center;
+  font-family: 'Open Sans';
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 5em;
+  width:100%;
 }
 
 .swatch1,
-.swatch2 {
-  width: 33em;
+.swatch2,
+.swatch3{
+  display: inline-block;
+  text-align: left;
+  vertical-align: middle;
+  width: 30em;
   margin: 1em;
-  margin-left: 3em;
   background: #F7882F;
   color: white;
   border-radius: .5em;
-  text-align: left;
   box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
   border-bottom-left-radius: .5em;
   border-bottom-right-radius:.5em;
 }
 
 .swatch {
-  height: 200px;
+  height: 250px;
   background: #6B7A8F;
   color: white;
   border-bottom-left-radius: .5em;
@@ -155,9 +160,9 @@ p {
 }
 
 .box{
-  width: 400px;
-  margin-left: 2em;
-  margin-top: 2em;
+  width: 28em;
+  margin-left: 1em;
+  margin-top: 3em;
   overflow: hidden;
   float: left;
 }
@@ -296,4 +301,22 @@ meter {
 
 .styled-1 meter:-moz-meter-sub-sub-optimum::-moz-meter-bar {
   background: #CC4600;
+}
+
+
+.wrapper2 {
+    text-align: center;
+}
+
+.button2 {
+    background-color: #4CAF50;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
 }
