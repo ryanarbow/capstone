@@ -50,9 +50,13 @@
             <td width="25%" bgcolor="#B0B391"></td>
         </tr>
     </table>
+    <ul class="navbar navbar-default navbar-static-top" role="navigation">
+      <li><a href="{{ url_for('landing_page') }}">Home</a></li>
+      <li><a href="contact.asp">Contact</a></li>
+      <li style="float:right"><a class="active" href="#about">About</a></li>
+    </ul>
     <div class="introduction">
-        <h1>Check out your profile scores below</h1>
-        <h1>Click on the boxes below to learn how to improve.</h1>
+        <h1>How do you compare to other hosts in {{ city }}? </h1>
     </div>
     <div class="container">
       <div class="swatch1">
@@ -99,7 +103,7 @@
       </div>
     </div>
     <div class="introduction">
-      <h3>Want to learn how to improve your profile?</h1>
+      <h3>Want to learn how to improve your profile?</h3>
     </div>
     <div class="wrapper2">
       <button class="button2">Button</button>
