@@ -77,7 +77,9 @@ class ProfileExtractor(object):
         return (user_data, dv_ext.data_for_user(town))
 
 
-cities = [[ 'ca' , 'los-angeles']] #['tx', "austin"] ,
+cities = [[ 'ca' , 'los-angeles'] , 
+           [ 'wa' , 'seattle']]# ,
+        #   ['tx', "austin"] ,
         #   [ 'ca' , 'los-angeles'] ,
         #   [ 'ga' , 'atlanta'] ,
         #   [ 'ma' , 'boston'] ,
@@ -91,7 +93,6 @@ cities = [[ 'ca' , 'los-angeles']] #['tx', "austin"] ,
         #   [ 'or' , 'portland'] ,
         #   [ 'ca' , 'san-francisco'] ,
         #   [ 'ca' , 'san-diego'] ,
-        #   [ 'wa' , 'seattle'] ,
         #   [ 'dc' , 'washington'] ,
         #   [ 'co' , 'denver']]
 

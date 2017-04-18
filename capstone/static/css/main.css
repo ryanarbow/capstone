@@ -234,7 +234,7 @@ meter {
 }
 
 .styled meter:-moz-meter-optimum::-moz-meter-bar {
-  background: #73AD05;
+  background: #4CAF50;
 }
 
 .styled meter:-moz-meter-sub-optimum::-moz-meter-bar {
@@ -274,7 +274,7 @@ meter {
 }
 
 .styled-1 meter::-webkit-meter-optimum-value {
-  background: #86CC00;
+  background: #4CAF50;
 }
 
 .styled-1 meter::-webkit-meter-suboptimum-value {
@@ -292,7 +292,7 @@ meter {
 }
 
 .styled-1 meter:-moz-meter-optimum::-moz-meter-bar {
-  background: #CC4600;
+  background: #4CAF50;
 }
 
 .styled-1 meter:-moz-meter-sub-optimum::-moz-meter-bar {
@@ -319,4 +319,5 @@ meter {
     font-size: 16px;
     margin: 1em;
     cursor: pointer;
+    width: 20em;
 }
