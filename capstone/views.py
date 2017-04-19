@@ -75,9 +75,9 @@ def profile_get():
     if price == price_mean:
         price_result = "is on par with everyone else."
     elif price > price_mean:
-        price_result = "is above the average price."
+        price_result = "is above average."
     else:
-        price_result = "is below the average price."
+        price_result = "is below average."
     rating = user.rating
     if rating == rating_mean:
         rating_result = "is on par with everyone else."
