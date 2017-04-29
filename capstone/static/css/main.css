@@ -3,13 +3,21 @@
 * { margin: 0; padding: 0; }
 
 .introduction,
-.images,
+
 .form-group{
   text-align: center;
   font-family: 'Open Sans';
   margin-left: auto;
   margin-right: auto;
   margin-top: 2em;
+}
+
+.images {
+  text-align: center;
+  font-family: 'Open Sans';
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 3.5em;
 }
 
 .navbar {
@@ -63,8 +71,7 @@ h2{
 }
 
 .imgcontainer > img {
-  border:2px solid white;
-  border-radius: 20px
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
 }
 
 span{
@@ -83,6 +90,7 @@ span{
   background-color: #6B7A8F;
   height: 10em;
   margin-bottom: auto;
+  margin-top: 3.5em;
 }
 
 input{
@@ -151,7 +159,7 @@ p {
 }
 
 .swatch {
-  height: 250px;
+  height: 225px;
   background: #6B7A8F;
   color: white;
   border-bottom-left-radius: .5em;
@@ -234,7 +242,7 @@ meter {
 }
 
 .styled meter:-moz-meter-optimum::-moz-meter-bar {
-  background: #73AD05;
+  background: #4CAF50;
 }
 
 .styled meter:-moz-meter-sub-optimum::-moz-meter-bar {
@@ -274,7 +282,7 @@ meter {
 }
 
 .styled-1 meter::-webkit-meter-optimum-value {
-  background: #86CC00;
+  background: #4CAF50;
 }
 
 .styled-1 meter::-webkit-meter-suboptimum-value {
@@ -292,7 +300,7 @@ meter {
 }
 
 .styled-1 meter:-moz-meter-optimum::-moz-meter-bar {
-  background: #CC4600;
+  background: #4CAF50;
 }
 
 .styled-1 meter:-moz-meter-sub-optimum::-moz-meter-bar {
@@ -319,4 +327,5 @@ meter {
     font-size: 16px;
     margin: 1em;
     cursor: pointer;
+    width: 20em;
 }

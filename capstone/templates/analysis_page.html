@@ -62,8 +62,8 @@
       <div class="swatch1">
         <p>Price</p>
         <div class="swatch">
-          <p>The nightly boarding price of {{ city }} ranges from a low of ${{ price_min }} to a high of ${{ price_max }} with an average of ${{ price_mean }}.</p>
-          <p>Your price of ${{ price }} {{ result }}</p>
+          <p>The nightly boarding price in {{ city }} ranges from a low of ${{ price_min }} to a high of ${{ price_max }} with an average of ${{ price_mean }}.</p>
+          <p>Your price of ${{ price }} {{ price_result }}</p>
           <div class="box">
             <p class="styled-1">
               <meter min={{ price_min }} max={{ price_max }} low={{ price_mean }} high={{ price_mean }} optimum={{ price_max }} value= {{ price }} ></meter>
@@ -76,8 +76,8 @@
       <div class="swatch2">
         <p>Reviews</p>
         <div class="swatch">
-          <p>The number of reviews for {{ city }} ranges from a low of {{ review_min }} to a high of {{ review_max }} with an average of {{ review_mean }}.</p> 
-          <p>You have {{ review }}s which insert .</p>
+          <p>The number of reviews for hosts in {{ city }} ranges from a low of {{ review_min }} to a high of {{ review_max }} with an average of {{ review_mean }}.</p> 
+          <p>Your review of {{ review }} {{ review_result }} {{ review_max }}?!</p>
           <div class="box">
             <p class="styled">
               <meter min={{ review_min }} max={{ review_max }} low={{ review_mean }} high={{ review_mean }} optimum={{ review_max}} value={{ review }}></meter>
@@ -90,8 +90,8 @@
       <div class="swatch3">
         <p>Ratings</p>
         <div class="swatch" id="c7">
-          <p>The profile ratings of {{ city }} ranges from a low of {{ rating_min }} to a high of {{ rating_max }} with an average of {{ rating_mean }}.</p>
-          <p>Your rating is {{ rating }}.</p>
+          <p>The profile ratings for hosts in {{ city }} ranges from a low of {{ rating_min }} to a high of {{ rating_max }} with an average of {{ rating_mean }}.</p>
+          <p>Your rating of {{ rating }} {{ rating_result }}</p>
           <div class="box">
             <p class="styled">
               <meter min={{ rating_min }} max={{ rating_max }} low={{ rating_mean }} high={{ rating_mean }} optimum={{ rating_max}} value={{ rating }}></meter>
@@ -103,10 +103,10 @@
       </div>
     </div>
     <div class="introduction">
-      <h3>Want to learn how to improve your profile?</h3>
+      <h2> All green? No problem. Let's see how we can help you out. </h2>
     </div>
     <div class="wrapper2">
-      <button class="button2">Button</button>
+      <button class="button2"> See My Recommendations </button>
     </div>
 </html>
 

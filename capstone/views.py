@@ -39,7 +39,6 @@ def analysis_for_user():
         user_city_data.loc['response_time_mean'])
     profile_analysis.response_time_max = (
         user_city_data.loc['response_time_max'])
-    
     entry = Entry()
     if session.query(Entry).filter_by(url=url).first():
         session.query(Entry).get(url)
@@ -70,46 +69,29 @@ def profile_get():
     review_min = profile.review_min
     review_mean = profile.review_mean
     review_max = profile.review_max
-    # response_time_min = profile.response_time_min
-    # if response_time_min == 1:
-    #     response_min = 'minutes'
-    # elif response_time_min == 2:
-    #     response_min = 'hour'
-    # else:
-    #     response_min = 'days'
-    # response_time_mean = profile.response_time_mean
-    # if response_time_mean == 1:
-    #     response_mean = 'minutes'
-    # elif response_time_mean == 2:
-    #     response_mean = 'hour'
-    # else:
-    #     response_mean = 'days'
-    # response_time_max = profile.response_time_max
-    # if response_time_max == 1:
-    #     response_max = 'minutes'
-    # elif response_time_max == 2:
-    #     response_max = 'hour'
-    # else:
-    #     response_max = 'days'
     user = session.query(Entry).get(url)
     city = user.city
     price = user.price
-    rating = user.rating
-    review = user.review
-    #response_time = user.response_time
-    #if response_time == 1:
-    #    response = 'minutes'
-    #elif response_time == 2:
-    #    response = 'hour'
-    #else:
-    #    response = 'days'
     if price == price_mean:
-        result = "is on par with everyone else."
+        price_result = "is on par with everyone else."
     elif price > price_mean:
-        result = "is above the average price"
+        price_result = "is above average."
     else:
-        result = "is below the average price"
-
+        price_result = "is below average."
+    rating = user.rating
+    if rating == rating_mean:
+        rating_result = "is on par with everyone else."
+    elif rating > rating_mean:
+        rating_result = "is above average. Nice job!"
+    else:
+        rating_result = "is below average."
+    review = user.review
+    if review == review_mean:
+        review_result = "is on par with everyone else."
+    elif review > review_mean:
+        review_result = "is above average. Congrats! But WTH,"
+    else:
+        review_result = "is below average."
     return render_template(
         "analysis_page.html",
         price_min=price_min,
@@ -121,17 +103,11 @@ def profile_get():
         review_min=review_min,
         review_mean=review_mean,
         review_max=review_max,
-        # response_time_min=response_time_min,
-        # response_time_mean=response_time_mean,
-        # response_time_max=response_time_max,
-        # response_min=response_min,
-        # response_mean=response_mean,
-        # response_max=response_max,
         city=city,
         price=price,
         rating=rating,
         review=review,
-        #response_time=response_time,
-        #response=response,
-        result=result
+        price_result=price_result,
+        rating_result=rating_result,
+        review_result=review_result
         )

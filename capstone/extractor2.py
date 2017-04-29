@@ -77,7 +77,9 @@ class ProfileExtractor(object):
         return (user_data, dv_ext.data_for_user(town))
 
 
-cities = [[ 'ca' , 'los-angeles']] #['tx', "austin"] ,
+cities = [[ 'wa' , 'seattle']]
+        #   [ 'ca' , 'los-angeles'] , 
+        #   ['tx', "austin"] ,
         #   [ 'ca' , 'los-angeles'] ,
         #   [ 'ga' , 'atlanta'] ,
         #   [ 'ma' , 'boston'] ,
@@ -91,7 +93,6 @@ cities = [[ 'ca' , 'los-angeles']] #['tx', "austin"] ,
         #   [ 'or' , 'portland'] ,
         #   [ 'ca' , 'san-francisco'] ,
         #   [ 'ca' , 'san-diego'] ,
-        #   [ 'wa' , 'seattle'] ,
         #   [ 'dc' , 'washington'] ,
         #   [ 'co' , 'denver']]
 
@@ -245,8 +246,7 @@ class DVExtractor(object):
 
 def test():
     dv_ext = DVExtractor()
-    user_url = "https://dogvacay.com/best-care-in-the-west-end-dog-" + \
-    "boarding-242304?default_service=boarding"
+    user_url = "https://dogvacay.com/downtowncapitol-hill-dog-care-dog-boarding-1057710?service=boarding&default_service=boarding"
     pr_ext = ProfileExtractor(user_url)
     user_city_data = pr_ext.data_for_profile(dv_ext)[0]
     print("============ User Data:")
