@@ -52,7 +52,7 @@
     </table>
     <ul class="navbar navbar-default navbar-static-top" role="navigation">
       <li><a href="{{ url_for('landing_page') }}">Home</a></li>
-      <li style="float:right"><a class="active" href="#about">About</a></li>
+      <li style="float:right"><a href="{{ url_for('about_page') }}">About</a></li>
     </ul>
     <div class="introduction">
         <h1>How do you compare to other hosts in {{ city }}? </h1>
@@ -105,7 +105,14 @@
       <h2> All green? No problem. Let's see how we can help you out. </h2>
     </div>
     <div class="wrapper2">
-      <button class="button2"> See My Recommendations </button>
+      <a href="#popup1" class="button2">See my Recommendations</a>
+    </div>
+    <div id="popup1" class="overlay">
+    	<div class="popup">
+    		<h2>We're almost there</h2>
+    		<a class="close" href="#">&times;</a>
+    		<div class="content">Please check back soon for new features.</div>
+    	</div>
     </div>
 </html>
 
