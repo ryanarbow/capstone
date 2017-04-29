@@ -11,7 +11,6 @@ import os
 def landing_page():
     return render_template("landing_page.html")
 
-
 @app.route('/', methods=["POST"])
 def analysis_for_user():
     if os.environ["CONFIG_PATH"] == "capstone.config.TestingConfig":
@@ -111,3 +110,7 @@ def profile_get():
         rating_result=rating_result,
         review_result=review_result
         )
+
+@app.route("/about", methods=["GET"])
+def about_page():
+    return render_template("about_page.html")

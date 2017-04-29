@@ -29,29 +29,7 @@
         <li style="float:right"><a href="{{ url_for('about_page') }}">About</a></li>
     </ul>
     <div class="introduction">
-        <h1>Stand out from the crowd. Every time.</h1>
-        <h1>Learn how to improve your profile in 3 simple steps.</h1>
+        <h2>About</h2>
+        <p1>This project</p1>
     </div>
-    <div class="images">
-        <div class ="imgcontainer">
-            <img src={{url_for('static', filename='url_input2.png')}} style="width:250px;height:140px;">
-            <h2>Enter your DogVacay profile URL</h2>
-        </div>
-        <span>&#10095;</span>
-        <div class ="imgcontainer">
-            <img src={{url_for('static', filename='analysis1.png')}} style="width:250px;height:140px;">
-            <h2>Review your scores</h2>
-        </div>
-        <span>&#10095;</span>
-        <div class ="imgcontainer">
-            <img src={{url_for('static', filename='recommendation.png')}} style="width:250px;height:140px;">
-            <h2>Get recommendations</h2>
-        </div>
-    </div>
-    <form role="form" method="POST">
-        <div class="form-group" method="POST">
-            <input type="text" id="text" name="url" placeholder="Input your url">
-            <button type="submit">Get started!</button>
-        </div>
-    </form>
 </html>
