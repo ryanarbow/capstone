@@ -59,6 +59,11 @@ h2{
   font-size: 1.5em;
 }
 
+p1{
+  font-weight: 300;
+  font-size: 1em;
+}
+
 .images{
   max-width: 80em;
   margin-bottom: 1em;
