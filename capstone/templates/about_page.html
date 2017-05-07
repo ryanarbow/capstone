@@ -29,29 +29,11 @@
         <li style="float:right"><a href="{{ url_for('about_page') }}">About</a></li>
     </ul>
     <div class="introduction">
-        <h1>Stand out from the crowd. Every time.</h1>
-        <h1>Learn how to improve your profile in 3 simple steps.</h1>
+        <h1>About</h1>
+        <p1> This site is the capstone to my completion of the Thinkful Programming in Python and Data Science in Python courses.</p1><br>
+        <p1> My goal was to create an easy to use tool to enable DogVacy hosts to better understand the market they operate in and make data driven decisions for their business.</p1>
+        <p1> I'm excited by what this has turned out to be and more excited to future, similar projects to come.</p1><br>
+        <p1><br></p1>
+        <p1> If you have any questions, feedback, or are interested in collaborating please feel free to reach me <a href="https://www.linkedin.com/in/ryanarbow/">here</a>.</p1>
     </div>
-    <div class="images">
-        <div class ="imgcontainer">
-            <img src={{url_for('static', filename='url_input2.png')}} style="width:250px;height:140px;">
-            <h2>Enter your DogVacay profile URL</h2>
-        </div>
-        <span>&#10095;</span>
-        <div class ="imgcontainer">
-            <img src={{url_for('static', filename='analysis1.png')}} style="width:250px;height:140px;">
-            <h2>Review your scores</h2>
-        </div>
-        <span>&#10095;</span>
-        <div class ="imgcontainer">
-            <img src={{url_for('static', filename='recommendation.png')}} style="width:250px;height:140px;">
-            <h2>Get recommendations</h2>
-        </div>
-    </div>
-    <form role="form" method="POST">
-        <div class="form-group" method="POST">
-            <input type="text" id="text" name="url" placeholder="Input your url">
-            <button type="submit">Get started!</button>
-        </div>
-    </form>
 </html>
