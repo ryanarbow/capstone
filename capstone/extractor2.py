@@ -77,24 +77,24 @@ class ProfileExtractor(object):
         return (user_data, dv_ext.data_for_user(town))
 
 
-cities = [[ 'wa' , 'seattle']]
-        #   [ 'ca' , 'los-angeles'] , 
-        #   ['tx', "austin"] ,
-        #   [ 'ca' , 'los-angeles'] ,
-        #   [ 'ga' , 'atlanta'] ,
-        #   [ 'ma' , 'boston'] ,
-        #   [ 'nc' , 'charlotte'] ,
-        #   [ 'tx' , 'dallas'] ,
-        #   [ 'fl' , 'miami'] , 
-        #   [ 'mn' , 'minneapolis'] ,
-        #   [ 'ny' , 'new-york'] , 
-        #   [ 'pa' , 'philadelphia'] ,
-        #   [ 'az' , 'phoenix'] ,
-        #   [ 'or' , 'portland'] ,
-        #   [ 'ca' , 'san-francisco'] ,
-        #   [ 'ca' , 'san-diego'] ,
-        #   [ 'dc' , 'washington'] ,
-        #   [ 'co' , 'denver']]
+cities = [[ 'wa' , 'seattle'] ,
+          [ 'ca' , 'los-angeles'] , 
+          ['tx', "austin"] ,
+          [ 'ca' , 'los-angeles'] ,
+          [ 'ga' , 'atlanta'] ,
+          [ 'ma' , 'boston'] ,
+          [ 'nc' , 'charlotte'] ,
+          [ 'tx' , 'dallas'] ,
+          [ 'fl' , 'miami'] , 
+          [ 'mn' , 'minneapolis'] ,
+          [ 'ny' , 'new-york'] , 
+          [ 'pa' , 'philadelphia'] ,
+          [ 'az' , 'phoenix'] ,
+          [ 'or' , 'portland'] ,
+          [ 'ca' , 'san-francisco'] ,
+          [ 'ca' , 'san-diego'] ,
+          [ 'dc' , 'washington'] ,
+          [ 'co' , 'denver']]
 
 
 class DVExtractor(object):
