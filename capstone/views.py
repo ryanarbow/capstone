@@ -24,18 +24,18 @@ def analysis_for_user():
     user_profile_data = pr_ext.data_for_profile(dv_ext)[0]
     profile_analysis = Profile_Analysis()
     profile_analysis.price_min = (user_city_data.loc['fee_min'])
-    profile_analysis.price_mean = (user_city_data.loc['fee_mean'])
+    profile_analysis.price_mean = (user_city_data.loc['fee_median'])
     profile_analysis.price_max = (user_city_data.loc['fee_max'])
     profile_analysis.rating_min = (user_city_data.loc['rating_min'])
-    profile_analysis.rating_mean = (user_city_data.loc['rating_mean'])
+    profile_analysis.rating_mean = (user_city_data.loc['rating_median'])
     profile_analysis.rating_max = (user_city_data.loc['rating_max'])
     profile_analysis.review_min = (user_city_data.loc['review_min'])
-    profile_analysis.review_mean = (user_city_data.loc['review_mean'])
+    profile_analysis.review_mean = (user_city_data.loc['review_median'])
     profile_analysis.review_max = (user_city_data.loc['review_max'])
     profile_analysis.response_time_min = (
         user_city_data.loc['response_time_min'])
     profile_analysis.response_time_mean = (
-        user_city_data.loc['response_time_mean'])
+        user_city_data.loc['response_time_median'])
     profile_analysis.response_time_max = (
         user_city_data.loc['response_time_max'])
     entry = Entry()

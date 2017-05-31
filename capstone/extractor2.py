@@ -213,15 +213,15 @@ class DVExtractor(object):
         df2['rating'] = df2['rating'].astype(int)
         df2['fee'] = df2['fee'].astype(int)
         df2['review'] = df2['review'].astype(float)
-        df_1 = df2.groupby('town').mean()
+        df_1 = df2.groupby('town').median()
         df_2 = df2.groupby('town').max()
         df_3 = df2.groupby('town').min()
         df_1.rename(
             columns={
-                'fee': 'fee_mean',
-                'rating': 'rating_mean',
-                'response_time': 'response_time_mean',
-                'review': 'review_mean'}, inplace=True)
+                'fee': 'fee_median',
+                'rating': 'rating_median',
+                'response_time': 'response_time_median',
+                'review': 'review_median'}, inplace=True)
         df_2.rename(
             columns={
                 'fee': 'fee_max',
