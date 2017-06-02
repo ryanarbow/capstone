@@ -5,6 +5,7 @@ from .database import session, Profile_Analysis, Entry
 import capstone
 from capstone import extractor2
 import os
+from sqlalchemy import desc
 
 
 @app.route("/", methods=["GET"])
@@ -58,7 +59,8 @@ def analysis_for_user():
 @app.route("/profile", methods=["GET"])
 def profile_get():
     url = request.args['url']
-    profile = session.query(Profile_Analysis).get(1)
+    profiles = session.query(Profile_Analysis).filter(Profile_Analysis.entry.url == url).order_by(desc(Profile_Analysis.timestamp)).all()
+    profile = profiles[0]
     price_min = profile.price_min
     price_mean = profile.price_mean
     price_max = profile.price_max
