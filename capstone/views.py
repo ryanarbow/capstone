@@ -39,16 +39,21 @@ def analysis_for_user():
         user_city_data.loc['response_time_median'])
     profile_analysis.response_time_max = (
         user_city_data.loc['response_time_max'])
-    entry = Entry()
+    
     if session.query(Entry).filter_by(url=url).first():
-        session.query(Entry).get(url)
+        print("Entry exists for this url")
+        e = session.query(Entry).get(url)
+        profile_analysis.entry_url = e.url
     else:
+        print("Creating an Entry for a new url")
+        entry = Entry()
         entry.url = url
         entry.city = (user_profile_data)['city']
         entry.price = (user_profile_data)['fees']
         entry.rating = (user_profile_data)['ratings']
         entry.review = (user_profile_data)['reviews']
         entry.response_time = (user_profile_data)['times']
+        profile_analysis.entry_url = entry.url
         session.add(entry)
     session.add(profile_analysis)
     session.query()
@@ -59,8 +64,9 @@ def analysis_for_user():
 @app.route("/profile", methods=["GET"])
 def profile_get():
     url = request.args['url']
-    profiles = session.query(Profile_Analysis).filter(Profile_Analysis.entry.url == url).order_by(desc(Profile_Analysis.timestamp)).all()
+    profiles = session.query(Profile_Analysis).filter(Profile_Analysis.entry_url == url).order_by(desc(Profile_Analysis.timestamp)).all()
     profile = profiles[0]
+    print("Fetched profile analysis with id timestamp : ", profile.id, profile.timestamp)
     price_min = profile.price_min
     price_mean = profile.price_mean
     price_max = profile.price_max
